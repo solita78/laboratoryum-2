@@ -192,6 +192,7 @@ a {
   color: var(--text-0);
   max-width: 65ch;
   margin-bottom: var(--sp-7);
+  margin-top: -0.35rem; /* Optical alignment with logo */
 }
 
 .lab-header {
@@ -266,7 +267,7 @@ a {
   box-shadow:0 16px 30px rgba(0,0,0,.48);
 }
 
-.periodic-exp-cell:hover .periodic-description {
+.periodic-exp-cell:hover .periodic-title {
   -webkit-line-clamp: unset;
   overflow: visible;
 }
@@ -319,6 +320,16 @@ a {
   align-items: stretch;
 }
 
+.exp-list-animate {
+  animation: terminal-flicker 0.4s ease-out;
+}
+
+@keyframes terminal-flicker {
+  0% { opacity: 0; transform: translateY(10px); filter: brightness(2); }
+  50% { opacity: 0.5; filter: brightness(1.5); }
+  100% { opacity: 1; transform: translateY(0); filter: brightness(1); }
+}
+
 .exp-card-ficha {
   position: relative;
   display: flex;
@@ -358,27 +369,27 @@ a {
 
 .ficha-content {
   flex: 1;
-  padding: var(--sp-5);
+  padding: var(--sp-3) var(--sp-4);
   display: flex;
   flex-direction: column;
-  gap: var(--sp-4);
+  gap: var(--sp-2);
 }
 
 .ficha-title {
   margin: 0;
   font-family: var(--font-ui);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-1);
   line-height: 1.2;
 }
 
 .ficha-summary {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-0);
   opacity: 0.8;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

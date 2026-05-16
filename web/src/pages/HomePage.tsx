@@ -56,7 +56,11 @@ export function HomePage({ content }: Props) {
             No encontramos resultados para tu búsqueda. Prueba con otro término o limpia los filtros.
           </div>
         ) : (
-          <div className="exp-list" aria-live="polite">
+          <div
+            className="exp-list exp-list-animate"
+            aria-live="polite"
+            key={filtered.length + (filtered[0]?.code ?? '')}
+          >
             {filtered.map((experiment) => (
               <ExperimentCard key={experiment.code} experiment={experiment} />
             ))}
