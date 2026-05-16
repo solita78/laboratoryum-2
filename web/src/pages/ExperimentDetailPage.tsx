@@ -1,8 +1,15 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import type { LaboratoryumContent } from "../types/content";
+import { Layout } from "../components/Layout";
+import type { LaboratoryumContent, LaboratoryumExperiment } from "../types/content";
 
 type Props = {
   content: LaboratoryumContent;
+};
+
+const STATUS_LABEL: Record<LaboratoryumExperiment["status"], string> = {
+  draft: "Borrador",
+  in_progress: "En curso",
+  published: "Publicado",
 };
 
 export function ExperimentDetailPage({ content }: Props) {
@@ -16,44 +23,66 @@ export function ExperimentDetailPage({ content }: Props) {
   const prev = idx > 0 ? experiments[idx - 1] : null;
   const next = idx < experiments.length - 1 ? experiments[idx + 1] : null;
 
-  return (
-    <main id="main-content" tabIndex={-1} className="lab-container">
-      <article className="exp-detail">
+  const sidebar = (
+    <div className="sidebar-controls">
+      <section className="sidebar-section">
+        <h2 className="lab-meta">Identificador</h2>
         <p className="lab-meta">{exp.code}</p>
-        <h1>{exp.title}</h1>
-        <p>{exp.summary}</p>
-
-        <section>
-          <h2 className="lab-section-title">Pregunta central</h2>
-          <p>{exp.question}</p>
-        </section>
-
-        <section>
-          <h2 className="lab-section-title">Hipótesis de trabajo</h2>
-          <p>{exp.hypothesis}</p>
-        </section>
-
-        <section>
-          <h2 className="lab-section-title">Salida reutilizable</h2>
-          <p>{exp.kit}</p>
-        </section>
-
+      </section>
+      <section className="sidebar-section">
+        <h2 className="lab-meta">Navegación</h2>
         <nav className="exp-detail-nav" aria-label="Navegación entre experimentos">
           <Link className="lab-focus" to="/">
-            Volver a experimentos
+            LISTADO COMPLETO
           </Link>
           {prev && (
             <Link className="lab-focus" to={`/experimentos/${prev.slug.split("/").pop()}`}>
-              Anterior: {prev.code}
+              ANTERIOR: {prev.code}
             </Link>
           )}
           {next && (
             <Link className="lab-focus" to={`/experimentos/${next.slug.split("/").pop()}`}>
-              Siguiente: {next.code}
+              SIGUIENTE: {next.code}
             </Link>
           )}
         </nav>
+      </section>
+    </div>
+  );
+
+  return (
+    <Layout sidebarContent={sidebar}>
+      <article className="exp-detail technical-sheet">
+        <header className="sheet-header">
+          <p className="lab-meta">LABORATORYUM · TECHNICAL REPORT</p>
+          <div className="sheet-title-box">
+            <h1>{exp.title}</h1>
+            <span className={`status-badge status-${exp.status}`}>{STATUS_LABEL[exp.status].toUpperCase()}</span>
+          </div>
+          <p className="sheet-summary">{exp.summary}</p>
+        </header>
+
+        <section className="sheet-section">
+          <h2 className="lab-section-title">01. PREGUNTA CENTRAL</h2>
+          <div className="sheet-content">
+            <p>{exp.question}</p>
+          </div>
+        </section>
+
+        <section className="sheet-section">
+          <h2 className="lab-section-title">02. HIPÓTESIS DE TRABAJO</h2>
+          <div className="sheet-content">
+            <p>{exp.hypothesis}</p>
+          </div>
+        </section>
+
+        <section className="sheet-section">
+          <h2 className="lab-section-title">03. SALIDA REUTILIZABLE</h2>
+          <div className="sheet-content kit-box">
+            <p>{exp.kit}</p>
+          </div>
+        </section>
       </article>
-    </main>
+    </Layout>
   );
 }

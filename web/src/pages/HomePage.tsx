@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { ExperimentCard } from "../components/ExperimentCard";
 import { ExperimentFilters } from "../components/ExperimentFilters";
 import { PeriodicGrid } from "../components/PeriodicGrid";
-import { GlitchLogo } from "../components/GlitchLogo";
+import { Layout } from "../components/Layout";
 import type { LaboratoryumContent, LaboratoryumExperiment } from "../types/content";
 
 type Props = {
@@ -17,38 +17,39 @@ export function HomePage({ content }: Props) {
     [content.experiments],
   );
 
-  return (
-    <main id="main-content" tabIndex={-1} className="lab-container">
-      <header className="site-header" aria-label="Encabezado principal">
-        <a href="#main-content" className="site-brand" aria-label="Laboratoryum, ir al inicio">
-          <GlitchLogo />
-        </a>
-        <nav aria-label="Menú principal">
-          <ul className="site-menu">
-            <li><a href="#experimentos">Experimentos</a></li>
-            <li><a href="#recursos">Recursos</a></li>
-            <li><a href="#archivo">Archivo</a></li>
-            <li><a href="#footer">Contacto</a></li>
-          </ul>
-        </nav>
-      </header>
-
-      <header className="lab-header">
-        <p>Laboratoryum es un laboratorio independiente sobre futuros de la web: un espacio de investigación, prototipado y experimentación sobre IA, automatización, accesibilidad, lenguaje, cultura digital y agentes.</p>
+  const sidebar = (
+    <div className="sidebar-controls">
+      <section className="sidebar-section">
+        <h2 className="lab-meta">Estadísticas</h2>
         <p className="lab-meta">
-          {content.stats.totalExperiments} experimentos · {featuredCount} destacados
+          {content.stats.totalExperiments} LABS ACTIVOS<br />
+          {featuredCount} DESTACADOS
         </p>
+      </section>
+
+      <section className="sidebar-section">
+        <h2 className="lab-meta">Filtros de Búsqueda</h2>
+        <ExperimentFilters experiments={content.experiments} onChange={setFiltered} />
+      </section>
+    </div>
+  );
+
+  return (
+    <Layout sidebarContent={sidebar}>
+      <header className="lab-header">
+        <p className="hero-text">Laboratoryum es un laboratorio independiente sobre futuros de la web: un espacio de investigación, prototipado y experimentación sobre IA, automatización, accesibilidad, lenguaje, cultura digital y agentes.</p>
       </header>
 
-      <section id="experimentos">
+      <section id="experimentos" className="periodic-section">
+        <h2 className="lab-section-title">Índice Periódico</h2>
         <PeriodicGrid experiments={content.experiments} limit={12} />
       </section>
 
-      <section>
-        <h2 className="lab-section-title">Explorar todos los experimentos</h2>
-        <ExperimentFilters experiments={content.experiments} onChange={setFiltered} />
-
-        <p className="lab-meta" role="status" aria-live="polite">Mostrando {filtered.length} de {content.experiments.length} experimentos</p>
+      <section className="exp-section">
+        <div className="section-header">
+          <h2 className="lab-section-title">Archivo de Experimentos</h2>
+          <p className="lab-meta" role="status" aria-live="polite">Resultados: {filtered.length} / {content.experiments.length}</p>
+        </div>
 
         {filtered.length === 0 ? (
           <div className="exp-empty" role="status" aria-live="polite">
@@ -62,16 +63,6 @@ export function HomePage({ content }: Props) {
           </div>
         )}
       </section>
-
-      <footer id="footer" className="site-footer">
-        <p>Laboratoryum</p>
-        <nav aria-label="Menú de pie de página">
-          <ul className="site-footer-menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#experimentos">Experimentos</a></li>
-          </ul>
-        </nav>
-      </footer>
-    </main>
+    </Layout>
   );
 }
