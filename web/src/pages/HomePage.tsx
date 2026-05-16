@@ -45,7 +45,7 @@ export function HomePage({ content }: Props) {
         <PeriodicGrid experiments={content.experiments} limit={12} />
       </section>
 
-      <section className="exp-section">
+      <section id="archivo" className="exp-section">
         <div className="section-header">
           <h2 className="lab-section-title">Archivo de Experimentos</h2>
           <p className="lab-meta" role="status" aria-live="polite">Resultados: {filtered.length} / {content.experiments.length}</p>

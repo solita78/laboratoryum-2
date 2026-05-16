@@ -108,17 +108,19 @@ a {
   padding: var(--sp-5) var(--sp-4);
   display: flex;
   flex-direction: column;
-  gap: var(--sp-6);
+  gap: var(--sp-5);
   overflow-y: auto;
 }
 
 .sidebar-header {
-  margin-bottom: var(--sp-4);
+  margin-bottom: var(--sp-2);
 }
 
 .site-brand {
   display: block;
   text-decoration: none;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .site-menu {
@@ -127,17 +129,17 @@ a {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-2);
+  gap: 2px;
 }
 
 .site-menu a {
   text-decoration: none;
-  color: var(--text-2);
+  color: var(--text-1);
   font-family: var(--font-ui);
   font-size: 0.85rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: var(--sp-2) 0;
+  padding: var(--sp-1) 0;
   display: block;
   transition: color var(--t-fast);
 }
@@ -155,9 +157,10 @@ a {
 }
 
 .sidebar-section h2 {
-  margin-bottom: var(--sp-3);
-  color: var(--text-2);
+  margin-bottom: var(--sp-2);
+  color: var(--accent);
   font-size: 0.75rem;
+  opacity: 0.8;
 }
 
 .sidebar-footer {
@@ -179,7 +182,7 @@ a {
 }
 
 .lab-main {
-  padding: var(--sp-6) var(--sp-7);
+  padding: var(--sp-5) var(--sp-7);
   max-width: 1400px;
 }
 
@@ -191,7 +194,10 @@ a {
   margin-bottom: var(--sp-7);
 }
 
-.lab-header { margin-bottom: var(--sp-7); }
+.lab-header {
+  margin-bottom: var(--sp-7);
+  padding-top: 0;
+}
 
 .lab-meta {
   margin: 0;
@@ -243,20 +249,26 @@ a {
   width:100%;
   min-height:0;
   padding:12px;
-  border:1px solid #9dd9b7;
-  border-radius:6px;
-  background:#17392b;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:var(--bg-1);
   text-decoration:none;
   overflow:hidden;
-  transition:border-color var(--t-base) ease,background-color var(--t-base) ease,transform var(--t-base) ease,box-shadow var(--t-base) ease;
+  transition:all var(--t-base) ease;
 }
 
 .periodic-exp-cell:hover{
   z-index:30;
-  border-color:#f0fff8;
-  background:#1f4b39;
-  transform:translateY(-2px) scale(1.04);
-  box-shadow:0 16px 30px rgba(0,0,0,.48),0 0 0 1px rgba(240,255,248,.42) inset;
+  border-color:var(--accent);
+  background:var(--bg-2);
+  height: auto;
+  min-height: 140px;
+  box-shadow:0 16px 30px rgba(0,0,0,.48);
+}
+
+.periodic-exp-cell:hover .periodic-description {
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
 
 .periodic-topline{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -303,8 +315,8 @@ a {
 .exp-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  gap: var(--sp-5);
-  align-items: start;
+  gap: var(--sp-6);
+  align-items: stretch;
 }
 
 .exp-card-ficha {
@@ -313,6 +325,7 @@ a {
   flex-direction: column;
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
   transition: transform var(--t-base);
+  height: 100%;
 }
 
 .exp-card-ficha:hover {
@@ -340,14 +353,15 @@ a {
   border: 1px solid var(--line);
   border-radius: 0 var(--r-md) var(--r-md) var(--r-md);
   overflow: hidden;
+  flex: 1;
 }
 
 .ficha-content {
   flex: 1;
-  padding: var(--sp-4);
+  padding: var(--sp-5);
   display: flex;
   flex-direction: column;
-  gap: var(--sp-3);
+  gap: var(--sp-4);
 }
 
 .ficha-title {
@@ -442,17 +456,20 @@ a {
   margin: 0 auto;
 }
 
-.technical-sheet::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 4px;
-  background: repeating-linear-gradient(90deg, var(--accent), var(--accent) 10px, transparent 10px, transparent 20px);
-}
 
 .sheet-header {
   border-bottom: 1px solid var(--line);
   padding-bottom: var(--sp-5);
   margin-bottom: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.sheet-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .sheet-title-box {
@@ -510,8 +527,18 @@ a {
   background: var(--bg-0);
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: var(--text-2);
+  color: var(--text-1);
   transition: all var(--t-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-2) var(--sp-3) !important;
+}
+
+.nav-code {
+  font-size: 0.65rem;
+  color: var(--accent);
+  opacity: 0.7;
 }
 
 .exp-detail-nav a:hover {
@@ -556,12 +583,12 @@ a {
   display:inline-block;
   color:var(--glow);
   font-family:var(--font-ui);
-  font-size:clamp(2rem,4vw,3.4rem);
+  font-size:clamp(1.2rem, 3vw, 1.9rem);
   font-weight:600;
   letter-spacing:-.005em;
   text-transform:lowercase;
   line-height:1;
-  transform:scale(1.12,.9);
+  transform:scale(1.1,.9);
   transform-origin:left center;
   text-shadow:0 0 5px rgba(42,240,164,.34);
   filter:saturate(1.12);

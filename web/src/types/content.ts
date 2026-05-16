@@ -34,6 +34,7 @@ export interface LaboratoryumExperiment {
   status: ExperimentStatus;
   featured: boolean;
   tags: string[];
+  publishedAt?: string;
 }
 
 export interface LaboratoryumContent {

@@ -37,12 +37,14 @@ export function ExperimentDetailPage({ content }: Props) {
           </Link>
           {prev && (
             <Link className="lab-focus" to={`/experimentos/${prev.slug.split("/").pop()}`}>
-              ANTERIOR: {prev.code}
+              EXPERIMENTO ANTERIOR
+              <span className="nav-code">{prev.code}</span>
             </Link>
           )}
           {next && (
             <Link className="lab-focus" to={`/experimentos/${next.slug.split("/").pop()}`}>
-              SIGUIENTE: {next.code}
+              SIGUIENTE EXPERIMENTO
+              <span className="nav-code">{next.code}</span>
             </Link>
           )}
         </nav>
@@ -54,7 +56,10 @@ export function ExperimentDetailPage({ content }: Props) {
     <Layout sidebarContent={sidebar}>
       <article className="exp-detail technical-sheet">
         <header className="sheet-header">
-          <p className="lab-meta">LABORATORYUM · TECHNICAL REPORT</p>
+          <div className="sheet-meta-top">
+            <p className="lab-meta">LABORATORYUM · TECHNICAL REPORT</p>
+            {exp.publishedAt && <p className="lab-meta">FECHA: {exp.publishedAt}</p>}
+          </div>
           <div className="sheet-title-box">
             <h1>{exp.title}</h1>
             <span className={`status-badge status-${exp.status}`}>{STATUS_LABEL[exp.status].toUpperCase()}</span>
