@@ -38,10 +38,11 @@ export function ExperimentCard({ experiment }: Props) {
         </ul>
       )}
 
-      <dl>
-        <dt className="lab-meta">Kit derivado</dt>
-        <dd>{experiment.kit}</dd>
-      </dl>
+            <Link className="lab-focus ficha-link" to={`/experimentos/${experiment.slug.split("/").pop()}`}>
+              ABRIR REGISTRO →
+            </Link>
+          </div>
+        </div>
 
       <Link
         className="lab-focus card-link"
