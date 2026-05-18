@@ -56,7 +56,7 @@ export function PeriodicGrid({ experiments, limit = 25 }: Props) {
             return (
               <Link
                 key={exp.code}
-                to={`/experimentos/${exp.slug.split("/").pop()}`}
+                to={`/experimentos/${exp.slug}`}
                 className="periodic-exp-cell lab-focus"
                 style={{ gridColumn: String(pos.col), gridRow: String(pos.row) }}
                 aria-label={`${exp.code}: ${exp.title}. Estado ${STATUS_LABEL[exp.status]}`}
@@ -68,7 +68,9 @@ export function PeriodicGrid({ experiments, limit = 25 }: Props) {
                 </div>
                 <span className="periodic-symbol">{symbol}</span>
                 <p className="periodic-title" title={exp.title}>{exp.title}</p>
-                
+                <div className="periodic-overlay">
+                  <p className="periodic-description">{exp.summary}</p>
+                </div>
               </Link>
             );
           })}

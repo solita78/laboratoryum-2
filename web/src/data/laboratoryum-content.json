@@ -34,26 +34,105 @@
       "code": "LAB-001",
       "number": 1,
       "title": "La URL que desaparece",
-      "slug": "experimentos/lab-001-la-url-que-desaparece",
+      "slug": "la-url-que-desaparece-lab-001",
       "series": "metodologica",
       "summary": "Evalúa cómo cambia el acceso y la verificabilidad cuando una URL deja de estar disponible o se reemplaza.",
       "question": "¿Qué pasa con la memoria pública cuando una URL desaparece o cambia de destino?",
       "hypothesis": "Sin estrategia de preservación y redirección, la evidencia web se vuelve frágil e incitable.",
       "kit": "Link permanence kit",
-      "periodicSymbol": "LAUR",
-      "status": "draft",
+      "periodicSymbol": "🔗",
+      "status": "published",
       "featured": true,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "url",
         "preservacion",
         "circulacion"
-      ]
+      ],
+      "publishedAt": "2026-05-16",
+      "findings": [
+        "La copia exacta en otro dominio conserva el texto pero pierde verificabilidad (no hay forma de saber si es auténtica).",
+        "Los resúmenes y reescrituras por IA destruyen datos concretos (el 40% de mejora desaparece; '22%' se convierte en 'muchos').",
+        "Las plataformas sociales (Twitter) rompen la citabilidad  se convierte en un comentario suelto sin anclaje.",
+        "Wayback Machine preserva contexto y trazabilidad, pero la URL de archivo no es la original (la confianza es indirecta).",
+        "Una redirección 301 bien hecha puede salvar el acceso, pero si el destino cambia de contenido, el contexto se degrada.",
+        "Una URL rota (404) aniquila toda evidencia si no hay copia archivada."
+      ],
+      "observations": "Se compararon 8 versiones de un mismo párrafo: original, copia exacta en otro dominio, resumen IA (GPT-4), reescritura IA divulgativa, extracción a tweet, archivo en Wayback Machine, redirección 301 a contenido modificado, y URL rota 404. La versión original obtuvo 4.9/5 en confianza; la archivada en Wayback Machine 4.6/5; todas las demás bajaron drásticamente en verificabilidad y contexto. El resumen IA eliminó el 40% de mejora mencionado en el original. La reescritura IA convirtió '22%' en 'muchos'. Twitter destruyó la citabilidad. 404 = pérdida total.",
+      "protocol": "1. Archiva la URL en web.archive.org/save\n2. Captura una copia local (PDF o HTML) con fecha y hash SHA-256\n3. Cita añadiendo '(consultado el YYYY-MM-DD en URL_archivo)'\n\nPara mayor seguridad, aplica la 'Regla de los 3 espejos': copia local + archive.org + resumen crítico con cita exacta.",
+      "matrix": {
+        "headers": [
+          "Versión",
+          "Transformación",
+          "Confianza (0-5)",
+          "Contexto (0-5)",
+          "Verificabilidad"
+        ],
+        "rows": [
+          {
+            "Versión": "V1",
+            "Transformación": "original",
+            "Confianza (0-5)": 4.9,
+            "Contexto (0-5)": 5,
+            "Verificabilidad": 5
+          },
+          {
+            "Versión": "V2",
+            "Transformación": "copia otro dominio",
+            "Confianza (0-5)": 2.9,
+            "Contexto (0-5)": 4,
+            "Verificabilidad": 2
+          },
+          {
+            "Versión": "V3",
+            "Transformación": "resumen IA",
+            "Confianza (0-5)": 1.8,
+            "Contexto (0-5)": 1,
+            "Verificabilidad": 1
+          },
+          {
+            "Versión": "V4",
+            "Transformación": "reescritura IA",
+            "Confianza (0-5)": 0.5,
+            "Contexto (0-5)": 0,
+            "Verificabilidad": 0
+          },
+          {
+            "Versión": "V5",
+            "Transformación": "tweet",
+            "Confianza (0-5)": 0.8,
+            "Contexto (0-5)": 1,
+            "Verificabilidad": 0
+          },
+          {
+            "Versión": "V6",
+            "Transformación": "Wayback Machine",
+            "Confianza (0-5)": 4.6,
+            "Contexto (0-5)": 5,
+            "Verificabilidad": 4
+          },
+          {
+            "Versión": "V7",
+            "Transformación": "redirección 301",
+            "Confianza (0-5)": 3.0,
+            "Contexto (0-5)": 2,
+            "Verificabilidad": 3
+          },
+          {
+            "Versión": "V8",
+            "Transformación": "URL rota 404",
+            "Confianza (0-5)": 0,
+            "Contexto (0-5)": 0,
+            "Verificabilidad": 0
+          }
+        ]
+      },
+      "demoUrl": "/demos/link-permanence.html"
     },
     {
       "code": "LAB-002",
       "number": 2,
       "title": "El enlace sin contexto",
-      "slug": "experimentos/lab-002-el-enlace-sin-contexto",
+      "slug": "el-enlace-sin-contexto-lab-002",
       "series": "metodologica",
       "summary": "Mide la pérdida de sentido cuando un enlace circula sin resumen, fuente o marco de lectura.",
       "question": "¿Cuánta información se pierde cuando un enlace se comparte sin su contexto original?",
@@ -62,7 +141,7 @@
       "periodicSymbol": "ELEN",
       "status": "draft",
       "featured": true,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "enlaces",
         "contexto",
         "citacion"
@@ -72,7 +151,7 @@
       "code": "LAB-003",
       "number": 3,
       "title": "El acceso que filtra el conocimiento",
-      "slug": "experimentos/lab-003-el-acceso-que-filtra-el-conocimiento",
+      "slug": "el-acceso-que-filtra-el-conocimiento-lab-003",
       "series": "metodologica",
       "summary": "Compara cómo cambian alcance, citabilidad y reutilización entre contenido abierto, cerrado y mixto.",
       "question": "¿Qué conocimiento queda fuera cuando el acceso depende de login, paywall o plataforma?",
@@ -81,7 +160,7 @@
       "periodicSymbol": "ELAC",
       "status": "draft",
       "featured": true,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "acceso",
         "paywall",
         "conocimiento"
@@ -91,7 +170,7 @@
       "code": "LAB-004",
       "number": 4,
       "title": "La fuente que no se puede verificar",
-      "slug": "experimentos/lab-004-la-fuente-que-no-se-puede-verificar",
+      "slug": "la-fuente-que-no-se-puede-verificar-lab-004",
       "series": "metodologica",
       "summary": "Prueba qué condiciones mínimas necesita una afirmación para ser contrastable por terceros.",
       "question": "¿Qué convierte una afirmación en fuente verificable y no solo en opinión convincente?",
@@ -100,7 +179,7 @@
       "periodicSymbol": "LAFU",
       "status": "draft",
       "featured": true,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "fuentes",
         "verificacion",
         "evidencia"
@@ -110,7 +189,7 @@
       "code": "LAB-005",
       "number": 5,
       "title": "El archivo que se rompe con el tiempo",
-      "slug": "experimentos/lab-005-el-archivo-que-se-rompe-con-el-tiempo",
+      "slug": "el-archivo-que-se-rompe-con-el-tiempo-lab-005",
       "series": "metodologica",
       "summary": "Analiza degradación de archivos, rutas y formatos en ciclos de actualización y migración.",
       "question": "¿Qué se pierde en un archivo digital cuando cambian formatos, rutas o herramientas?",
@@ -119,7 +198,7 @@
       "periodicSymbol": "ELAR",
       "status": "draft",
       "featured": true,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "archivo",
         "formatos",
         "durabilidad"
@@ -129,7 +208,7 @@
       "code": "LAB-006",
       "number": 6,
       "title": "El agente que cita sin leer",
-      "slug": "experimentos/lab-006-el-agente-que-cita-sin-leer",
+      "slug": "el-agente-que-cita-sin-leer-lab-006",
       "series": "metodologica",
       "summary": "Compara respuestas de agentes cuando citan por resumen, por snippets o por lectura completa.",
       "question": "¿Qué errores aparecen cuando un agente cita contenido que no ha leído de forma completa?",
@@ -138,7 +217,7 @@
       "periodicSymbol": "ELAG",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "agentes-ia",
         "citacion",
         "alucinacion"
@@ -148,7 +227,7 @@
       "code": "LAB-007",
       "number": 7,
       "title": "La respuesta que no muestra su rastro",
-      "slug": "experimentos/lab-007-la-respuesta-que-no-muestra-su-rastro",
+      "slug": "la-respuesta-que-no-muestra-su-rastro-lab-007",
       "series": "metodologica",
       "summary": "Evalúa confianza de respuestas con y sin registro de fuentes, prompts y transformaciones.",
       "question": "¿Cuánta confianza puede merecer una respuesta de IA sin rastro de procedencia?",
@@ -157,7 +236,7 @@
       "periodicSymbol": "LARE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "trazabilidad",
         "respuestas-ia",
         "auditoria"
@@ -167,7 +246,7 @@
       "code": "LAB-008",
       "number": 8,
       "title": "El contenido que envejece sin aviso",
-      "slug": "experimentos/lab-008-el-contenido-que-envejece-sin-aviso",
+      "slug": "el-contenido-que-envejece-sin-aviso-lab-008",
       "series": "metodologica",
       "summary": "Mide riesgo de obsolescencia cuando piezas publicadas no indican fecha, versión o estado.",
       "question": "¿Cómo cambia la interpretación de un contenido cuando envejece sin señal de actualización?",
@@ -176,7 +255,7 @@
       "periodicSymbol": "ELCO",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "vigencia",
         "obsolescencia",
         "temporalidad"
@@ -186,7 +265,7 @@
       "code": "LAB-009",
       "number": 9,
       "title": "La versión que reemplaza a la memoria",
-      "slug": "experimentos/lab-009-la-versi-n-que-reemplaza-a-la-memoria",
+      "slug": "la-version-que-reemplaza-a-la-memoria-lab-009",
       "series": "metodologica",
       "summary": "Estudia qué ocurre cuando una versión nueva borra huellas de versiones anteriores.",
       "question": "¿Cómo mantener continuidad histórica cuando una actualización reemplaza la versión previa?",
@@ -195,7 +274,7 @@
       "periodicSymbol": "LAVE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "versionado",
         "memoria",
         "historial"
@@ -205,7 +284,7 @@
       "code": "LAB-010",
       "number": 10,
       "title": "La interfaz que oculta el origen",
-      "slug": "experimentos/lab-010-la-interfaz-que-oculta-el-origen",
+      "slug": "la-interfaz-que-oculta-el-origen-lab-010",
       "series": "metodologica",
       "summary": "Evalúa cómo diseño y microcopy pueden ocultar o revelar fuente, método y límites.",
       "question": "¿Qué parte de la confianza depende de que la interfaz exponga origen y contexto?",
@@ -214,7 +293,7 @@
       "periodicSymbol": "LAIN",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "interfaz",
         "origen",
         "transparencia"
@@ -224,7 +303,7 @@
       "code": "LAB-011",
       "number": 11,
       "title": "El texto que cambia de autor",
-      "slug": "experimentos/lab-011-el-texto-que-cambia-de-autor",
+      "slug": "el-texto-que-cambia-de-autor-lab-011",
       "series": "aplicada",
       "summary": "Examina cómo se desplaza la autoría al pasar por escritura humana, IA, edición y resumen.",
       "question": "¿Qué ocurre con la autoría de un texto al pasar por humano, IA, traducción y resumen?",
@@ -233,7 +312,7 @@
       "periodicSymbol": "ELTE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "autoria",
         "texto",
         "edicion"
@@ -243,7 +322,7 @@
       "code": "LAB-012",
       "number": 12,
       "title": "La imagen que parece prueba",
-      "slug": "experimentos/lab-012-la-imagen-que-parece-prueba",
+      "slug": "la-imagen-que-parece-prueba-lab-012",
       "series": "aplicada",
       "summary": "Compara imágenes reales, editadas y generadas para medir cuándo funcionan como evidencia.",
       "question": "¿Qué necesita una imagen para funcionar como evidencia y no solo impresión visual?",
@@ -252,7 +331,7 @@
       "periodicSymbol": "LAIM",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "imagen",
         "evidencia",
         "metadatos"
@@ -262,7 +341,7 @@
       "code": "LAB-013",
       "number": 13,
       "title": "La voz sin cuerpo",
-      "slug": "experimentos/lab-013-la-voz-sin-cuerpo",
+      "slug": "la-voz-sin-cuerpo-lab-013",
       "series": "aplicada",
       "summary": "Analiza confianza en voces reales, clonadas y generadas en distintos canales de circulación.",
       "question": "¿Qué ocurre cuando una voz puede ser real, clonada o sintética y cuesta distinguirla?",
@@ -271,7 +350,7 @@
       "periodicSymbol": "LAVO",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "audio",
         "voz",
         "proveniencia"
@@ -281,7 +360,7 @@
       "code": "LAB-014",
       "number": 14,
       "title": "El vídeo que ya no basta",
-      "slug": "experimentos/lab-014-el-v-deo-que-ya-no-basta",
+      "slug": "el-video-que-ya-no-basta-lab-014",
       "series": "aplicada",
       "summary": "Evalúa manipulación por capas en vídeo: imagen, voz, subtítulos, corte y contexto.",
       "question": "¿Qué necesita un vídeo para ser creíble cuando sus capas pueden manipularse por separado?",
@@ -290,7 +369,7 @@
       "periodicSymbol": "ELVÍ",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "video",
         "capas",
         "verificacion"
@@ -300,7 +379,7 @@
       "code": "LAB-015",
       "number": 15,
       "title": "La entrevista convertida en dato",
-      "slug": "experimentos/lab-015-la-entrevista-convertida-en-dato",
+      "slug": "la-entrevista-convertida-en-dato-lab-015",
       "series": "aplicada",
       "summary": "Mide la pérdida de matices al convertir conversación en resumen, cita o titular.",
       "question": "¿Qué se pierde al convertir conversación en transcripción, resumen o dato extraíble?",
@@ -309,7 +388,7 @@
       "periodicSymbol": "LAEN",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "entrevista",
         "datos",
         "reduccion"
@@ -319,7 +398,7 @@
       "code": "LAB-016",
       "number": 16,
       "title": "El dato que parece neutral",
-      "slug": "experimentos/lab-016-el-dato-que-parece-neutral",
+      "slug": "el-dato-que-parece-neutral-lab-016",
       "series": "aplicada",
       "summary": "Compara tabla, gráfico, titular y resumen para identificar sesgos de representación.",
       "question": "¿Qué necesita un dato para no convertirse en apariencia de objetividad?",
@@ -328,7 +407,7 @@
       "periodicSymbol": "ELDA",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "datos",
         "sesgo",
         "neutralidad"
@@ -338,7 +417,7 @@
       "code": "LAB-017",
       "number": 17,
       "title": "El PDF que se resiste",
-      "slug": "experimentos/lab-017-el-pdf-que-se-resiste",
+      "slug": "el-pdf-que-se-resiste-lab-017",
       "series": "aplicada",
       "summary": "Compara legibilidad humana y maquínica entre PDF visual, accesible, escaneado y HTML.",
       "question": "¿Qué ocurre cuando un PDF debe ser leído por humanos, buscadores y agentes de IA?",
@@ -347,7 +426,7 @@
       "periodicSymbol": "ELPD",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "pdf",
         "accesibilidad",
         "lectura-maquinica"
@@ -357,7 +436,7 @@
       "code": "LAB-018",
       "number": 18,
       "title": "El post que se desprende de su fuente",
-      "slug": "experimentos/lab-018-el-post-que-se-desprende-de-su-fuente",
+      "slug": "el-post-que-se-desprende-de-su-fuente-lab-018",
       "series": "aplicada",
       "summary": "Analiza cómo se fragmenta una idea al circular como post, captura, cita o resumen.",
       "question": "¿Qué pasa cuando una idea sale de su fuente y circula en formatos fragmentados?",
@@ -366,7 +445,7 @@
       "periodicSymbol": "ELPO",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "social",
         "fragmentacion",
         "fuente"
@@ -376,7 +455,7 @@
       "code": "LAB-019",
       "number": 19,
       "title": "La newsletter que desaparece",
-      "slug": "experimentos/lab-019-la-newsletter-que-desaparece",
+      "slug": "la-newsletter-que-desaparece-lab-019",
       "series": "aplicada",
       "summary": "Evalúa permanencia, archivo y citabilidad de contenido que vive en inbox cerrados.",
       "question": "¿Qué ocurre con un contenido que solo vive en una bandeja de entrada?",
@@ -385,7 +464,7 @@
       "periodicSymbol": "LANE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "newsletter",
         "archivo",
         "permanencia"
@@ -395,7 +474,7 @@
       "code": "LAB-020",
       "number": 20,
       "title": "El formulario como conversación rota",
-      "slug": "experimentos/lab-020-el-formulario-como-conversaci-n-rota",
+      "slug": "el-formulario-como-conversacion-rota-lab-020",
       "series": "aplicada",
       "summary": "Compara fricción, claridad y sesgo entre formularios mínimos, largos, accesibles y asistidos por IA.",
       "question": "¿Qué se pierde cuando una interacción humana se reduce a campos y validaciones?",
@@ -404,7 +483,7 @@
       "periodicSymbol": "ELFO",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "formularios",
         "contexto",
         "ux"
@@ -414,7 +493,7 @@
       "code": "LAB-021",
       "number": 21,
       "title": "El archivo que no sabe qué contiene",
-      "slug": "experimentos/lab-021-el-archivo-que-no-sabe-qu-contiene",
+      "slug": "el-archivo-que-no-sabe-que-contiene-lab-021",
       "series": "aplicada",
       "summary": "Prueba modelos de organización para que una colección sea legible por personas y agentes.",
       "question": "¿Qué necesita una colección de archivos para ser entendida por humanos y agentes?",
@@ -423,7 +502,7 @@
       "periodicSymbol": "ELAR",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "archivo",
         "metadatos",
         "clasificacion"
@@ -433,7 +512,7 @@
       "code": "LAB-022",
       "number": 22,
       "title": "La biografía que se convierte en fuente",
-      "slug": "experimentos/lab-022-la-biograf-a-que-se-convierte-en-fuente",
+      "slug": "la-biografia-que-se-convierte-en-fuente-lab-022",
       "series": "aplicada",
       "summary": "Compara bios narrativas, SEO e institucionales para medir precisión y citabilidad.",
       "question": "¿Qué necesita una biografía para ser entendida por humanos, buscadores e IA?",
@@ -442,7 +521,7 @@
       "periodicSymbol": "LABI",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "biografia",
         "autoridad",
         "fuentes"
@@ -452,7 +531,7 @@
       "code": "LAB-023",
       "number": 23,
       "title": "La obra fuera de contexto",
-      "slug": "experimentos/lab-023-la-obra-fuera-de-contexto",
+      "slug": "la-obra-fuera-de-contexto-lab-023",
       "series": "aplicada",
       "summary": "Estudia qué pierde una obra cuando circula como imagen suelta sin ficha ni proceso.",
       "question": "¿Qué se pierde cuando una obra circula sin autoría, ficha y contexto?",
@@ -461,7 +540,7 @@
       "periodicSymbol": "LAOB",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "obra",
         "contexto",
         "cultura-digital"
@@ -471,7 +550,7 @@
       "code": "LAB-024",
       "number": 24,
       "title": "El mapa que decide la realidad",
-      "slug": "experimentos/lab-024-el-mapa-que-decide-la-realidad",
+      "slug": "el-mapa-que-decide-la-realidad-lab-024",
       "series": "aplicada",
       "summary": "Compara representación espacial en mapas, relatos, reseñas y respuestas de IA.",
       "question": "¿Qué ocurre cuando un lugar se representa por coordenadas, etiquetas y plataformas?",
@@ -480,7 +559,7 @@
       "periodicSymbol": "ELMA",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "mapas",
         "representacion",
         "poder"
@@ -490,7 +569,7 @@
       "code": "LAB-025",
       "number": 25,
       "title": "El testimonio que se convierte en prueba",
-      "slug": "experimentos/lab-025-el-testimonio-que-se-convierte-en-prueba",
+      "slug": "el-testimonio-que-se-convierte-en-prueba-lab-025",
       "series": "aplicada",
       "summary": "Distingue entre cita promocional, testimonio útil y caso verificable con evidencia.",
       "question": "¿Qué diferencia hay entre testimonio útil, frase promocional y prueba documentada?",
@@ -499,7 +578,7 @@
       "periodicSymbol": "ELTE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16", "tags": [
+      "tags": [
         "testimonio",
         "prueba",
         "etica"
