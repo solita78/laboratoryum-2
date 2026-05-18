@@ -12,25 +12,27 @@ const STATUS_LABEL: Record<LaboratoryumExperiment["status"], string> = {
 };
 
 export function ExperimentCard({ experiment }: Props) {
-  const slug = experiment.slug;
+  const { code, slug, title, status, summary, tags, kit } = experiment;
+  const titleId = "exp-title-" + code;
+  const statusLabel = STATUS_LABEL[status];
+  const statusClass = "status-badge status-" + status;
+  const detailPath = "/experimentos/" + slug;
+
   return (
-    <article className="exp-card" aria-labelledby={`exp-title-${experiment.code}`}>
+    <article className="exp-card" aria-labelledby={titleId}>
       <div className="exp-card-head">
-        <p className="lab-meta">{experiment.code}</p>
-        <span
-          className={`status-badge status-${experiment.status}`}
-          aria-label={`Estado: ${STATUS_LABEL[experiment.status]}`}
-        >
-          {STATUS_LABEL[experiment.status]}
+        <p className="lab-meta">{code}</p>
+        <span className={statusClass}>
+          {statusLabel}
         </span>
       </div>
 
-      <h3 id={`exp-title-${experiment.code}`}>{experiment.title}</h3>
-      <p>{experiment.summary}</p>
+      <h3 id={titleId}>{title}</h3>
+      <p>{summary}</p>
 
-      {experiment.tags.length > 0 && (
-        <ul className="exp-tags" aria-label="Etiquetas del experimento">
-          {experiment.tags.map((tag) => (
+      {tags.length > 0 && (
+        <ul className="exp-tags">
+          {tags.map((tag) => (
             <li key={tag} className="exp-tag">
               {tag}
             </li>
@@ -38,17 +40,12 @@ export function ExperimentCard({ experiment }: Props) {
         </ul>
       )}
 
-            <Link className="lab-focus ficha-link" to={`/experimentos/${experiment.slug.split("/").pop()}`}>
-              ABRIR REGISTRO →
-            </Link>
-          </div>
-        </div>
+      <dl>
+        <dt className="lab-meta">Kit derivado</dt>
+        <dd>{kit}</dd>
+      </dl>
 
-      <Link
-        className="lab-focus card-link"
-        to={`/experimentos/${slug}`}
-        aria-label={`Ver detalles del experimento ${experiment.title}`}
-      >
+      <Link className="lab-focus card-link" to={detailPath}>
         Ver experimento
       </Link>
     </article>

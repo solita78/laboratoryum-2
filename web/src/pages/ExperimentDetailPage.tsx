@@ -151,13 +151,16 @@ export function ExperimentDetailPage({ content }: Props) {
                       </tr>
                     </thead>
                     <tbody>
-                      {exp.matrix.rows.map((row, rowIdx) => (
-                        <tr key={rowIdx}>
-                          {exp.matrix.headers.map((header, colIdx) => (
-                            <td key={colIdx}>{row[header]}</td>
-                          ))}
-                        </tr>
-                      ))}
+                      {exp.matrix.rows.map((row, rowIdx) => {
+                        const matrix = exp.matrix!;
+                        return (
+                          <tr key={rowIdx}>
+                            {matrix.headers.map((header, colIdx) => (
+                              <td key={colIdx}>{row[header]}</td>
+                            ))}
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>

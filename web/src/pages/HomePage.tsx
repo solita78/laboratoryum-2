@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState, useTransition } from "react";
+import { useCallback, useState, useTransition } from "react";
 import { Helmet } from "react-helmet-async";
 import { ExperimentCard } from "../components/ExperimentCard";
 import { ExperimentFilters } from "../components/ExperimentFilters";

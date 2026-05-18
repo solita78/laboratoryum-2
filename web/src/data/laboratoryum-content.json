@@ -7,10 +7,22 @@
     "ctaSecondary": "Ver kits derivados"
   },
   "navigation": [
-    { "id": "experimentos", "label": "Experimentos" },
-    { "id": "kits", "label": "Kits" },
-    { "id": "metodo", "label": "Método" },
-    { "id": "archivo", "label": "Archivo" }
+    {
+      "id": "experimentos",
+      "label": "Experimentos"
+    },
+    {
+      "id": "kits",
+      "label": "Kits"
+    },
+    {
+      "id": "metodo",
+      "label": "Método"
+    },
+    {
+      "id": "archivo",
+      "label": "Archivo"
+    }
   ],
   "stats": {
     "totalExperiments": 25,
@@ -27,16 +39,20 @@
       "summary": "Evalúa cómo cambia el acceso y la verificabilidad cuando una URL deja de estar disponible o se reemplaza.",
       "question": "¿Qué pasa con la memoria pública cuando una URL desaparece o cambia de destino?",
       "hypothesis": "Sin estrategia de preservación y redirección, la evidencia web se vuelve frágil e incitable.",
-      "kit": "Link permanence kit: checklist operativo + protocolo de 3 pasos.",
+      "kit": "Link permanence kit",
       "periodicSymbol": "🔗",
       "status": "published",
       "featured": true,
+      "tags": [
+        "url",
+        "preservacion",
+        "circulacion"
+      ],
       "publishedAt": "2026-05-16",
-      "tags": ["url rota", "link rot", "preservacion web", "redirecciones 301"],
       "findings": [
         "La copia exacta en otro dominio conserva el texto pero pierde verificabilidad (no hay forma de saber si es auténtica).",
         "Los resúmenes y reescrituras por IA destruyen datos concretos (el 40% de mejora desaparece; '22%' se convierte en 'muchos').",
-        "Las plataformas sociales (Twitter) rompen la citabilidad – se convierte en un comentario suelto sin anclaje.",
+        "Las plataformas sociales (Twitter) rompen la citabilidad  se convierte en un comentario suelto sin anclaje.",
         "Wayback Machine preserva contexto y trazabilidad, pero la URL de archivo no es la original (la confianza es indirecta).",
         "Una redirección 301 bien hecha puede salvar el acceso, pero si el destino cambia de contenido, el contexto se degrada.",
         "Una URL rota (404) aniquila toda evidencia si no hay copia archivada."
@@ -44,16 +60,70 @@
       "observations": "Se compararon 8 versiones de un mismo párrafo: original, copia exacta en otro dominio, resumen IA (GPT-4), reescritura IA divulgativa, extracción a tweet, archivo en Wayback Machine, redirección 301 a contenido modificado, y URL rota 404. La versión original obtuvo 4.9/5 en confianza; la archivada en Wayback Machine 4.6/5; todas las demás bajaron drásticamente en verificabilidad y contexto. El resumen IA eliminó el 40% de mejora mencionado en el original. La reescritura IA convirtió '22%' en 'muchos'. Twitter destruyó la citabilidad. 404 = pérdida total.",
       "protocol": "1. Archiva la URL en web.archive.org/save\n2. Captura una copia local (PDF o HTML) con fecha y hash SHA-256\n3. Cita añadiendo '(consultado el YYYY-MM-DD en URL_archivo)'\n\nPara mayor seguridad, aplica la 'Regla de los 3 espejos': copia local + archive.org + resumen crítico con cita exacta.",
       "matrix": {
-        "headers": ["Versión", "Transformación", "Confianza (0-5)", "Contexto (0-5)", "Verificabilidad"],
+        "headers": [
+          "Versión",
+          "Transformación",
+          "Confianza (0-5)",
+          "Contexto (0-5)",
+          "Verificabilidad"
+        ],
         "rows": [
-          { "Versión": "V1", "Transformación": "original", "Confianza (0-5)": 4.9, "Contexto (0-5)": 5, "Verificabilidad": 5 },
-          { "Versión": "V2", "Transformación": "copia otro dominio", "Confianza (0-5)": 2.9, "Contexto (0-5)": 4, "Verificabilidad": 2 },
-          { "Versión": "V3", "Transformación": "resumen IA", "Confianza (0-5)": 1.8, "Contexto (0-5)": 1, "Verificabilidad": 1 },
-          { "Versión": "V4", "Transformación": "reescritura IA", "Confianza (0-5)": 0.5, "Contexto (0-5)": 0, "Verificabilidad": 0 },
-          { "Versión": "V5", "Transformación": "tweet", "Confianza (0-5)": 0.8, "Contexto (0-5)": 1, "Verificabilidad": 0 },
-          { "Versión": "V6", "Transformación": "Wayback Machine", "Confianza (0-5)": 4.6, "Contexto (0-5)": 5, "Verificabilidad": 4 },
-          { "Versión": "V7", "Transformación": "redirección 301", "Confianza (0-5)": 3.0, "Contexto (0-5)": 2, "Verificabilidad": 3 },
-          { "Versión": "V8", "Transformación": "URL rota 404", "Confianza (0-5)": 0, "Contexto (0-5)": 0, "Verificabilidad": 0 }
+          {
+            "Versión": "V1",
+            "Transformación": "original",
+            "Confianza (0-5)": 4.9,
+            "Contexto (0-5)": 5,
+            "Verificabilidad": 5
+          },
+          {
+            "Versión": "V2",
+            "Transformación": "copia otro dominio",
+            "Confianza (0-5)": 2.9,
+            "Contexto (0-5)": 4,
+            "Verificabilidad": 2
+          },
+          {
+            "Versión": "V3",
+            "Transformación": "resumen IA",
+            "Confianza (0-5)": 1.8,
+            "Contexto (0-5)": 1,
+            "Verificabilidad": 1
+          },
+          {
+            "Versión": "V4",
+            "Transformación": "reescritura IA",
+            "Confianza (0-5)": 0.5,
+            "Contexto (0-5)": 0,
+            "Verificabilidad": 0
+          },
+          {
+            "Versión": "V5",
+            "Transformación": "tweet",
+            "Confianza (0-5)": 0.8,
+            "Contexto (0-5)": 1,
+            "Verificabilidad": 0
+          },
+          {
+            "Versión": "V6",
+            "Transformación": "Wayback Machine",
+            "Confianza (0-5)": 4.6,
+            "Contexto (0-5)": 5,
+            "Verificabilidad": 4
+          },
+          {
+            "Versión": "V7",
+            "Transformación": "redirección 301",
+            "Confianza (0-5)": 3.0,
+            "Contexto (0-5)": 2,
+            "Verificabilidad": 3
+          },
+          {
+            "Versión": "V8",
+            "Transformación": "URL rota 404",
+            "Confianza (0-5)": 0,
+            "Contexto (0-5)": 0,
+            "Verificabilidad": 0
+          }
         ]
       },
       "demoUrl": "/demos/link-permanence.html"
@@ -66,22 +136,16 @@
       "series": "metodologica",
       "summary": "Mide la pérdida de sentido cuando un enlace circula sin resumen, fuente o marco de lectura.",
       "question": "¿Cuánta información se pierde cuando un enlace se comparte sin su contexto original?",
-      "hypothesis": "La mayoría de enlaces compartidos sin contexto generan interpretación parcial o errónea. El receptor forma una expectativa basada en señales de plataforma y formato que con frecuencia no corresponde al contenido real del destino. El comportamiento cambia sustancialmente según el canal: lo que funciona en un documento de trabajo falla en una red social.",
-      "methodology": "Se seleccionan cinco contenidos originales de distinta tipología —artículo de análisis, informe con datos, hilo argumentativo, guía técnica y pieza de opinión— publicados en canales controlados. Cada contenido se comparte en seis configuraciones distintas, variando únicamente el texto de acompañamiento: con resumen completo y atribución de fuente, con resumen parcial sin fuente, con titular solo, como enlace desnudo sin texto adicional, con descripción que introduce un sesgo interpretativo leve, y como mención indirecta sin URL explícita. Se mide qué información retiene el receptor una semana después, qué interpreta sobre el contenido sin haberlo abierto, y qué acciones realiza: abre inmediatamente, guarda para después, comparte sin abrir, o ignora. El experimento se replica en tres canales: red social pública, newsletter privada y documento de trabajo compartido.",
-      "outputs": [
-        "Comparativa de retención de información por tipo de presentación y canal de distribución",
-        "Mapa de interpretaciones erróneas más frecuentes según grado de contexto aportado",
-        "Análisis del comportamiento de compartición: qué formatos se reenvían sin apertura previa",
-        "Guía de prácticas de contextualización por canal: redes sociales, newsletters, documentos internos",
-        "Contextual linking kit: patrones de texto de acompañamiento con ejemplos reales y criterios de decisión"
-      ],
-      "territory": "Un enlace sin contexto no es una puerta: es una promesa opaca. La web asume que quien comparte un enlace ha leído el destino y asume responsabilidad sobre lo que apunta. Este experimento mide cuánto de esa responsabilidad se cumple en la práctica, y qué formatos de presentación sostienen mejor la integridad del contenido al circular entre manos.",
+      "hypothesis": "La mayoría de enlaces compartidos sin contexto generan interpretación parcial o errónea.",
       "kit": "Contextual linking kit",
       "periodicSymbol": "ELEN",
-      "status": "in_progress",
+      "status": "draft",
       "featured": true,
-      "publishedAt": "2024-05-16",
-      "tags": ["enlaces", "contexto", "citacion"]
+      "tags": [
+        "enlaces",
+        "contexto",
+        "citacion"
+      ]
     },
     {
       "code": "LAB-003",
@@ -91,22 +155,16 @@
       "series": "metodologica",
       "summary": "Compara cómo cambian alcance, citabilidad y reutilización entre contenido abierto, cerrado y mixto.",
       "question": "¿Qué conocimiento queda fuera cuando el acceso depende de login, paywall o plataforma?",
-      "hypothesis": "Las barreras de acceso reducen trazabilidad y memoria colectiva de forma medible y sistemática, aunque mejoren el control de distribución del publicador. El impacto no es uniforme: afecta más al contenido técnico y de investigación que al de opinión, y más a publicaciones independientes que a instituciones con autoridad preestablecida.",
-      "methodology": "Se seleccionan diez piezas de contenido de alta relevancia informativa publicadas originalmente en acceso abierto. Cada pieza se replica en cuatro versiones de acceso: completamente abierto sin registro, con registro gratuito requerido, con suscripción de pago activa, y publicado exclusivamente en plataforma cerrada sin versión web pública. Durante cuatro semanas se mide para cada versión: visitas directas, tasa de compartición real en otras plataformas, citas verificables en medios externos, presencia en resultados de búsqueda, y respuesta de tres agentes de IA distintos cuando se les pregunta directamente por el contenido. Se documenta qué fragmentos de información sobreviven al paywall —titulares, extractos en snippets, resúmenes generados por IA— y qué desaparece por completo del conocimiento citado.",
-      "outputs": [
-        "Comparativa cuantitativa de alcance y citabilidad entre los cuatro modelos de acceso",
-        "Análisis de impacto en trazabilidad y presencia en buscadores según tipo de barrera",
-        "Estudio del comportamiento de agentes de IA ante contenido inaccesible o semicerrado",
-        "Mapa de qué tipologías de contenido sufren mayor pérdida de circulación por modelo de acceso",
-        "Access gradient kit: modelos de acceso progresivo con criterios de decisión para proyectos independientes"
-      ],
-      "territory": "El conocimiento que no se puede citar no puede convertirse en base de argumentación colectiva. Publicar detrás de una barrera es una decisión sobre quién construye sobre ese conocimiento y quién queda excluido de esa cadena. La pregunta no es si el paywall es legítimo —puede serlo—, sino qué coste tiene para la memoria colectiva y si quien publica es consciente de ese coste cuando toma la decisión.",
+      "hypothesis": "Las barreras de acceso reducen trazabilidad y memoria colectiva, aunque mejoren control de distribución.",
       "kit": "Access gradient kit",
       "periodicSymbol": "ELAC",
-      "status": "in_progress",
+      "status": "draft",
       "featured": true,
-      "publishedAt": "2024-05-16",
-      "tags": ["acceso", "paywall", "conocimiento"]
+      "tags": [
+        "acceso",
+        "paywall",
+        "conocimiento"
+      ]
     },
     {
       "code": "LAB-004",
@@ -116,22 +174,16 @@
       "series": "metodologica",
       "summary": "Prueba qué condiciones mínimas necesita una afirmación para ser contrastable por terceros.",
       "question": "¿Qué convierte una afirmación en fuente verificable y no solo en opinión convincente?",
-      "hypothesis": "Sin procedencia clara, fecha y metodología visible, una afirmación pierde valor documental aunque resulte persuasiva. Los agentes de IA amplifican este problema: citan con igual confianza afirmaciones bien documentadas y afirmaciones que solo suenan autorizadas, generando apariencia de evidencia donde no la hay.",
-      "methodology": "Se generan veinte afirmaciones de distinta tipología: hecho estadístico con cifra concreta, cita atribuida a persona pública, conclusión de investigación académica, dato histórico verificable y recomendación técnica de uso habitual. Cada afirmación se presenta en cuatro versiones: con fuente completa (autor, año, publicación, URL activa), con fuente parcial (solo autor o solo publicación), con fuente implícita mediante fórmulas como 'según estudios recientes' o 'los expertos señalan', y sin fuente explícita de ningún tipo. Se evalúa cada versión en tres dimensiones: capacidad de verificación real por un tercero en menos de cinco minutos, confianza percibida en pruebas con lectores sin formación especializada, y comportamiento de tres agentes de IA al reutilizar o citar la afirmación en respuestas posteriores.",
-      "outputs": [
-        "Clasificación de afirmaciones por nivel de verificabilidad real frente a verificabilidad percibida",
-        "Análisis del desfase entre confianza percibida por lectores y calidad documental real",
-        "Estudio del comportamiento de agentes de IA ante los cuatro niveles de atribución de fuente",
-        "Guía de requisitos mínimos de citación según tipología de afirmación",
-        "Source verification kit: plantillas de atribución, criterios de verificabilidad y ejemplos comparados"
-      ],
-      "territory": "Una afirmación sin fuente verificable puede circular durante años como dato consolidado y convertirse en base de otras afirmaciones igualmente inverificables. La acumulación de estas citas crea una estructura de conocimiento aparente que no resiste contraste. Este experimento establece qué condiciones mínimas necesita una afirmación para ser tratable como conocimiento —y mide cómo los agentes de IA amplifican o frenan ese proceso.",
+      "hypothesis": "Sin procedencia, fecha y método, la afirmación pierde valor documental.",
       "kit": "Source verification kit",
       "periodicSymbol": "LAFU",
-      "status": "in_progress",
+      "status": "draft",
       "featured": true,
-      "publishedAt": "2024-05-16",
-      "tags": ["fuentes", "verificacion", "evidencia"]
+      "tags": [
+        "fuentes",
+        "verificacion",
+        "evidencia"
+      ]
     },
     {
       "code": "LAB-005",
@@ -141,22 +193,16 @@
       "series": "metodologica",
       "summary": "Analiza degradación de archivos, rutas y formatos en ciclos de actualización y migración.",
       "question": "¿Qué se pierde en un archivo digital cuando cambian formatos, rutas o herramientas?",
-      "hypothesis": "Sin política de archivo, la información útil se vuelve ilegible o inubicable en un plazo inferior a cinco años. El deterioro no es repentino: es acumulativo, silencioso e invisible hasta que el acceso se necesita y ya no es posible.",
-      "methodology": "Se documentan tres archivos digitales reales de proyectos independientes con más de cinco años de antigüedad: uno sin política de mantenimiento registrada, uno con mantenimiento parcial y reactivo, y uno con política sistemática y documentada de preservación. Para cada caso se mapea: rutas rotas o huérfanas, formatos obsoletos que ya no abren los programas actuales, dependencias de herramientas o servicios descontinuados, pérdida de metadatos asociados al contenido, y capacidad real de recuperación del material original en su estado publicado. Se registra el coste en tiempo y recursos humanos de cada proceso de diagnóstico o recuperación, y se identifica el punto de origen de cada tipo de deterioro: decisión técnica, cambio de plataforma, migración no planificada o abandono silencioso.",
-      "outputs": [
-        "Diagnóstico comparativo de tres modelos de archivo con mapa de puntos de ruptura",
-        "Cronología del deterioro: en qué momento y por qué decisión se genera cada tipo de pérdida",
-        "Protocolo de mantenimiento preventivo con criterios de priorización por tipo de material",
-        "Guía de formatos y estructuras de baja obsolescencia para proyectos culturales e independientes",
-        "Archive durability kit: política de archivo tipo, checklist de mantenimiento y plantilla de decisión"
-      ],
-      "territory": "Todo archivo digital que no se mantiene activamente se está rompiendo en silencio. El deterioro no es repentino: es acumulativo e invisible hasta que alguien necesita acceder a algo y ya no puede. Este experimento mide a qué velocidad ocurre ese deterioro, qué decisiones técnicas lo aceleran y cuáles lo retrasan, y genera un modelo de mantenimiento mínimo aplicable a proyectos sin recursos dedicados.",
+      "hypothesis": "Sin política de archivo, la información útil se vuelve ilegible o inubicable.",
       "kit": "Archive durability kit",
       "periodicSymbol": "ELAR",
-      "status": "in_progress",
+      "status": "draft",
       "featured": true,
-      "publishedAt": "2024-05-16",
-      "tags": ["archivo", "formatos", "durabilidad"]
+      "tags": [
+        "archivo",
+        "formatos",
+        "durabilidad"
+      ]
     },
     {
       "code": "LAB-006",
@@ -171,8 +217,11 @@
       "periodicSymbol": "ELAG",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["agentes-ia", "citacion", "alucinacion"]
+      "tags": [
+        "agentes-ia",
+        "citacion",
+        "alucinacion"
+      ]
     },
     {
       "code": "LAB-007",
@@ -187,8 +236,11 @@
       "periodicSymbol": "LARE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["trazabilidad", "respuestas-ia", "auditoria"]
+      "tags": [
+        "trazabilidad",
+        "respuestas-ia",
+        "auditoria"
+      ]
     },
     {
       "code": "LAB-008",
@@ -203,8 +255,11 @@
       "periodicSymbol": "ELCO",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["vigencia", "obsolescencia", "temporalidad"]
+      "tags": [
+        "vigencia",
+        "obsolescencia",
+        "temporalidad"
+      ]
     },
     {
       "code": "LAB-009",
@@ -219,8 +274,11 @@
       "periodicSymbol": "LAVE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["versionado", "memoria", "historial"]
+      "tags": [
+        "versionado",
+        "memoria",
+        "historial"
+      ]
     },
     {
       "code": "LAB-010",
@@ -235,8 +293,11 @@
       "periodicSymbol": "LAIN",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["interfaz", "origen", "transparencia"]
+      "tags": [
+        "interfaz",
+        "origen",
+        "transparencia"
+      ]
     },
     {
       "code": "LAB-011",
@@ -251,8 +312,11 @@
       "periodicSymbol": "ELTE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["autoria", "texto", "edicion"]
+      "tags": [
+        "autoria",
+        "texto",
+        "edicion"
+      ]
     },
     {
       "code": "LAB-012",
@@ -267,8 +331,11 @@
       "periodicSymbol": "LAIM",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["imagen", "evidencia", "metadatos"]
+      "tags": [
+        "imagen",
+        "evidencia",
+        "metadatos"
+      ]
     },
     {
       "code": "LAB-013",
@@ -283,8 +350,11 @@
       "periodicSymbol": "LAVO",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["audio", "voz", "proveniencia"]
+      "tags": [
+        "audio",
+        "voz",
+        "proveniencia"
+      ]
     },
     {
       "code": "LAB-014",
@@ -299,8 +369,11 @@
       "periodicSymbol": "ELVÍ",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["video", "capas", "verificacion"]
+      "tags": [
+        "video",
+        "capas",
+        "verificacion"
+      ]
     },
     {
       "code": "LAB-015",
@@ -315,8 +388,11 @@
       "periodicSymbol": "LAEN",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["entrevista", "datos", "reduccion"]
+      "tags": [
+        "entrevista",
+        "datos",
+        "reduccion"
+      ]
     },
     {
       "code": "LAB-016",
@@ -331,8 +407,11 @@
       "periodicSymbol": "ELDA",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["datos", "sesgo", "neutralidad"]
+      "tags": [
+        "datos",
+        "sesgo",
+        "neutralidad"
+      ]
     },
     {
       "code": "LAB-017",
@@ -347,8 +426,11 @@
       "periodicSymbol": "ELPD",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["pdf", "accesibilidad", "lectura-maquinica"]
+      "tags": [
+        "pdf",
+        "accesibilidad",
+        "lectura-maquinica"
+      ]
     },
     {
       "code": "LAB-018",
@@ -363,8 +445,11 @@
       "periodicSymbol": "ELPO",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["social", "fragmentacion", "fuente"]
+      "tags": [
+        "social",
+        "fragmentacion",
+        "fuente"
+      ]
     },
     {
       "code": "LAB-019",
@@ -379,8 +464,11 @@
       "periodicSymbol": "LANE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["newsletter", "archivo", "permanencia"]
+      "tags": [
+        "newsletter",
+        "archivo",
+        "permanencia"
+      ]
     },
     {
       "code": "LAB-020",
@@ -395,8 +483,11 @@
       "periodicSymbol": "ELFO",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["formularios", "contexto", "ux"]
+      "tags": [
+        "formularios",
+        "contexto",
+        "ux"
+      ]
     },
     {
       "code": "LAB-021",
@@ -411,8 +502,11 @@
       "periodicSymbol": "ELAR",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["archivo", "metadatos", "clasificacion"]
+      "tags": [
+        "archivo",
+        "metadatos",
+        "clasificacion"
+      ]
     },
     {
       "code": "LAB-022",
@@ -427,8 +521,11 @@
       "periodicSymbol": "LABI",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["biografia", "autoridad", "fuentes"]
+      "tags": [
+        "biografia",
+        "autoridad",
+        "fuentes"
+      ]
     },
     {
       "code": "LAB-023",
@@ -443,8 +540,11 @@
       "periodicSymbol": "LAOB",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["obra", "contexto", "cultura-digital"]
+      "tags": [
+        "obra",
+        "contexto",
+        "cultura-digital"
+      ]
     },
     {
       "code": "LAB-024",
@@ -459,8 +559,11 @@
       "periodicSymbol": "ELMA",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["mapas", "representacion", "poder"]
+      "tags": [
+        "mapas",
+        "representacion",
+        "poder"
+      ]
     },
     {
       "code": "LAB-025",
@@ -475,8 +578,11 @@
       "periodicSymbol": "ELTE",
       "status": "draft",
       "featured": false,
-      "publishedAt": "2024-05-16",
-      "tags": ["testimonio", "prueba", "etica"]
+      "tags": [
+        "testimonio",
+        "prueba",
+        "etica"
+      ]
     }
   ]
 }

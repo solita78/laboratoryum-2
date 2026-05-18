@@ -1,6 +1,6 @@
 import { Link, Outlet, ScrollRestoration, useLocation } from "react-router-dom";
 import { GlitchLogo } from "./components/GlitchLogo";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import contentJson from "./data/laboratoryum-content.json";
 import type { LaboratoryumContent } from "./types/content";
 
