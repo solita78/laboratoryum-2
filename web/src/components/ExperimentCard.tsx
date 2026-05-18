@@ -12,42 +12,40 @@ const STATUS_LABEL: Record<LaboratoryumExperiment["status"], string> = {
 };
 
 export function ExperimentCard({ experiment }: Props) {
-  const { code, slug, title, status, summary, tags, kit } = experiment;
-  const titleId = "exp-title-" + code;
-  const statusLabel = STATUS_LABEL[status];
-  const statusClass = "status-badge status-" + status;
-  const detailPath = "/experimentos/" + slug;
-
   return (
-    <article className="exp-card" aria-labelledby={titleId}>
-      <div className="exp-card-head">
-        <p className="lab-meta">{code}</p>
-        <span className={statusClass}>
-          {statusLabel}
-        </span>
+    <article className="exp-card-ficha">
+      <header className="ficha-tab">
+        <span className="ficha-code">{experiment.code}</span>
+        <span className={`ficha-status status-${experiment.status}`}>{STATUS_LABEL[experiment.status].toUpperCase()}</span>
+      </header>
+
+      <div className="ficha-body">
+        <div className="ficha-content">
+          <h3 className="ficha-title">{experiment.title}</h3>
+          <p className="ficha-summary">{experiment.summary}</p>
+
+          <div className="ficha-footer">
+            <div className="ficha-meta-group">
+              <span className="lab-meta">KIT:</span>
+              <span className="ficha-kit">{experiment.kit}</span>
+            </div>
+
+            <Link className="lab-focus ficha-link" to={`/experimentos/${experiment.slug.split("/").pop()}`}>
+              ABRIR REGISTRO →
+            </Link>
+          </div>
+        </div>
+
+        {experiment.tags.length > 0 && (
+          <aside className="ficha-tags-aside">
+            {experiment.tags.map((tag) => (
+              <span key={tag} className="ficha-tag-vertical">
+                {tag}
+              </span>
+            ))}
+          </aside>
+        )}
       </div>
-
-      <h3 id={titleId}>{title}</h3>
-      <p>{summary}</p>
-
-      {tags.length > 0 && (
-        <ul className="exp-tags">
-          {tags.map((tag) => (
-            <li key={tag} className="exp-tag">
-              {tag}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <dl>
-        <dt className="lab-meta">Kit derivado</dt>
-        <dd>{kit}</dd>
-      </dl>
-
-      <Link className="lab-focus card-link" to={detailPath}>
-        Ver experimento
-      </Link>
     </article>
   );
 }
