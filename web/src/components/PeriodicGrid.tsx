@@ -6,6 +6,8 @@ type Props = {
   limit?: number;
 };
 
+type CellPos = { col: number; row: number };
+
 const STATUS_LABEL: Record<LaboratoryumExperiment["status"], string> = {
   draft: "Borrador",
   in_progress: "En curso",
@@ -25,8 +27,16 @@ const makeChemicalSymbol = (title: string) => {
   return `${first.toUpperCase()}${second.toLowerCase()}`;
 };
 
-export function PeriodicGrid({ experiments, limit = 12 }: Props) {
-  const items = experiments.slice(0, limit);
+export function PeriodicGrid({ experiments, limit = 25 }: Props) {
+  const total = Math.max(limit, experiments.length);
+  const items = experiments.slice(0, total);
+  const periodicPositions: CellPos[] = [
+    { col: 1, row: 1 }, { col: 8, row: 1 },
+    { col: 1, row: 2 }, { col: 2, row: 2 }, { col: 5, row: 2 }, { col: 6, row: 2 }, { col: 7, row: 2 }, { col: 8, row: 2 },
+    { col: 1, row: 3 }, { col: 2, row: 3 }, { col: 5, row: 3 }, { col: 6, row: 3 }, { col: 7, row: 3 }, { col: 8, row: 3 },
+    { col: 1, row: 4 }, { col: 2, row: 4 }, { col: 3, row: 4 }, { col: 4, row: 4 }, { col: 5, row: 4 }, { col: 6, row: 4 }, { col: 7, row: 4 }, { col: 8, row: 4 },
+    { col: 1, row: 5 }, { col: 2, row: 5 }, { col: 3, row: 5 },
+  ];
 
   return (
     <section className="periodic-section" aria-labelledby="periodic-title">
@@ -36,7 +46,11 @@ export function PeriodicGrid({ experiments, limit = 12 }: Props) {
 
       <div className="periodic-shell">
         <div className="periodic-grid" role="list">
-          {items.map((exp) => {
+          {items.map((exp, idx) => {
+            const pos = periodicPositions[idx] ?? {
+              col: ((idx - periodicPositions.length) % 8) + 1,
+              row: 6 + Math.floor((idx - periodicPositions.length) / 8),
+            };
             const symbol = makeChemicalSymbol(exp.title);
 
             return (
@@ -44,6 +58,7 @@ export function PeriodicGrid({ experiments, limit = 12 }: Props) {
                 key={exp.code}
                 to={`/experimentos/${exp.slug.split("/").pop()}`}
                 className="periodic-exp-cell lab-focus"
+                style={{ gridColumn: String(pos.col), gridRow: String(pos.row) }}
                 aria-label={`${exp.code}: ${exp.title}. Estado ${STATUS_LABEL[exp.status]}`}
                 role="listitem"
               >
