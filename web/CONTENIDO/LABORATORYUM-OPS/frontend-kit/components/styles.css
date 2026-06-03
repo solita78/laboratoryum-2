@@ -1,0 +1,248 @@
+.hero {
+  padding-block: var(--sp-6) var(--sp-5);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--sp-5);
+}
+
+.hero h1 {
+  margin: var(--sp-2) 0 var(--sp-3);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.hero-tagline {
+  margin: 0 0 var(--sp-3);
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  color: var(--text-1);
+  max-width: 64ch;
+}
+
+.hero-question,
+.hero-manifesto,
+.hero-value {
+  margin: 0 0 var(--sp-3);
+  max-width: 72ch;
+  line-height: 1.55;
+}
+
+.hero-question {
+  color: var(--text-0);
+}
+
+.hero-manifesto {
+  color: color-mix(in srgb, var(--text-0) 88%, var(--accent));
+}
+
+.hero-value {
+  color: var(--text-2);
+  margin-bottom: 0;
+}
+
+.archive-head {
+  margin-top: var(--sp-6);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.periodic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-3);
+  margin-block: var(--sp-4) var(--sp-6);
+}
+
+.periodic-cell {
+  display: grid;
+  align-content: space-between;
+  min-height: 132px;
+  padding: var(--sp-3);
+  border: 1px solid color-mix(in srgb, var(--line) 70%, black);
+  border-radius: var(--r-sm);
+  background: var(--bg-1);
+  text-decoration: none;
+  color: #04200f;
+  position: relative;
+  transition: border-color var(--t-base) ease, box-shadow var(--t-base) ease;
+}
+
+.periodic-cell:hover {
+  border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.28);
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.periodic-cell:focus-visible {
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.periodic-topline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.periodic-code {
+  color: color-mix(in srgb, #0b2f1a 84%, black);
+}
+
+.periodic-symbol {
+  font-family: var(--font-ui);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-top: var(--sp-3);
+}
+
+.periodic-title {
+  margin: var(--sp-2) 0 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: color-mix(in srgb, #09321b 92%, black);
+}
+
+.periodic-cell.status-draft {
+  background: #f0cb66;
+}
+
+.periodic-cell.status-in_progress {
+  background: #68cca8;
+}
+
+.periodic-cell.status-published {
+  background: #73badc;
+}
+
+.status-draft {
+  color: #5d3d05;
+}
+
+.status-in_progress {
+  color: #0e4d39;
+}
+
+.status-published {
+  color: #0e3f67;
+}
+
+.filters {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--bg-1) 92%, black);
+  margin-bottom: var(--sp-4);
+}
+
+.filters input,
+.filters select {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--bg-0);
+  color: var(--text-0);
+  padding: 0 var(--sp-3);
+  font-family: var(--font-ui);
+}
+
+.exp-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-7);
+}
+
+.exp-card {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  background: var(--bg-1);
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.exp-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.exp-card h3 {
+  margin: 0;
+  font-family: var(--font-ui);
+  line-height: 1.15;
+}
+
+.exp-card p,
+.exp-card dd {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.exp-card dl {
+  margin: 0;
+  display: grid;
+  gap: var(--sp-1);
+}
+
+.exp-card dt {
+  margin: 0;
+}
+
+.exp-card a {
+  justify-self: start;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: var(--sp-2) var(--sp-3);
+  color: var(--text-0);
+  background: color-mix(in srgb, var(--bg-2) 75%, black);
+}
+
+.exp-card a:hover {
+  border-color: var(--text-1);
+  color: var(--text-1);
+}
+
+@media (min-width: 768px) {
+  .periodic-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .filters {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .exp-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .periodic-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}

@@ -1,7 +1,9 @@
 {
   "project": {
     "name": "Laboratoryum",
-    "tagline": "Experimentos sobre web, IA, contexto y memoria digital.",
+    "tagline": "Experimentos para la web después de la interfaz.",
+    "coreQuestion": "¿Cómo será una web que ya no se diseña solo para pantallas, sino también para agentes, asistentes, lectores, traducciones, automatizaciones y formas de acceso que todavía están apareciendo?",
+    "manifesto": "No significa que la interfaz desaparezca. Significa que ya no es el único modo de acceso.",
     "valueProposition": "No publicamos opinión aislada: publicamos pruebas, comparaciones y métodos reutilizables para entender cómo cambia el sentido de la web cuando circula entre personas, plataformas y agentes.",
     "ctaPrimary": "Explorar experimentos",
     "ctaSecondary": "Ver kits derivados"
@@ -41,7 +43,7 @@
       "hypothesis": "Sin estrategia de preservación y redirección, la evidencia web se vuelve frágil e incitable.",
       "kit": "Link permanence kit",
       "periodicSymbol": "LAUR",
-      "status": "draft",
+      "status": "published",
       "featured": true,
       "publishedAt": "2024-05-16", "tags": [
         "url",
@@ -60,7 +62,7 @@
       "hypothesis": "La mayoría de enlaces compartidos sin contexto generan interpretación parcial o errónea.",
       "kit": "Contextual linking kit",
       "periodicSymbol": "ELEN",
-      "status": "draft",
+      "status": "in_progress",
       "featured": true,
       "publishedAt": "2024-05-16", "tags": [
         "enlaces",
@@ -136,7 +138,7 @@
       "hypothesis": "La citación sin lectura completa aumenta alucinación, descontextualización y falsa autoridad.",
       "kit": "Agent citation kit",
       "periodicSymbol": "ELAG",
-      "status": "draft",
+      "status": "published",
       "featured": false,
       "publishedAt": "2024-05-16", "tags": [
         "agentes-ia",
@@ -155,7 +157,7 @@
       "hypothesis": "Sin trazabilidad, la respuesta puede sonar sólida pero no ser auditable.",
       "kit": "AI traceability kit",
       "periodicSymbol": "LARE",
-      "status": "draft",
+      "status": "in_progress",
       "featured": false,
       "publishedAt": "2024-05-16", "tags": [
         "trazabilidad",
@@ -231,7 +233,7 @@
       "hypothesis": "La autoría textual actual es una cadena de decisiones y requiere declaración de intervención.",
       "kit": "Authorship trace kit",
       "periodicSymbol": "ELTE",
-      "status": "draft",
+      "status": "published",
       "featured": false,
       "publishedAt": "2024-05-16", "tags": [
         "autoria",

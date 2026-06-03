@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ExperimentCard } from "../components/ExperimentCard";
 import { ExperimentFilters } from "../components/ExperimentFilters";
 import { PeriodicGrid } from "../components/PeriodicGrid";
@@ -11,11 +11,26 @@ type Props = {
 
 export function HomePage({ content }: Props) {
   const [filtered, setFiltered] = useState<LaboratoryumExperiment[]>(content.experiments);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
 
   const featuredCount = useMemo(
     () => content.experiments.filter((exp) => exp.featured).length,
     [content.experiments],
   );
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const paginated = useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    return filtered.slice(start, start + pageSize);
+  }, [filtered, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filtered]);
+
+  useEffect(() => {
+    if (currentPage > totalPages) setCurrentPage(totalPages);
+  }, [currentPage, totalPages]);
 
   const sidebar = (
     <div className="sidebar-controls">
@@ -36,19 +51,32 @@ export function HomePage({ content }: Props) {
 
   return (
     <Layout sidebarContent={sidebar}>
-      <header className="lab-header">
-        <p className="hero-text">Laboratoryum es un laboratorio independiente sobre futuros de la web: un espacio de investigación, prototipado y experimentación sobre IA, automatización, accesibilidad, lenguaje, cultura digital y agentes.</p>
+      <header className="lab-header" data-reveal>
+        <p className="hero-text">Futuros de la web, en formato experimento.</p>
+        <p className="hero-question">
+          {content.project.coreQuestion ?? "¿Cómo será una web que ya no se diseña solo para pantallas, sino también para agentes, asistentes, lectores, traducciones, automatizaciones y formas de acceso que todavía están apareciendo?"}
+        </p>
+        <p className="hero-manifesto">
+          {content.project.manifesto ?? "No significa que la interfaz desaparezca. Significa que ya no es el único modo de acceso."}
+        </p>
       </header>
 
-      <section id="experimentos" className="periodic-section">
+      <section id="experimentos" className="periodic-section" data-reveal>
         <h2 className="lab-section-title">Índice Periódico</h2>
         <PeriodicGrid experiments={content.experiments} limit={12} />
+        <ul className="periodic-legend" aria-label="Leyenda de estados">
+          <li><span className="legend-dot legend-published" aria-hidden="true" />Publicado</li>
+          <li><span className="legend-dot legend-in-progress" aria-hidden="true" />En curso</li>
+          <li><span className="legend-dot legend-draft" aria-hidden="true" />Borrador</li>
+        </ul>
       </section>
 
-      <section id="archivo" className="exp-section">
+      <section id="archivo" className="exp-section" data-reveal>
         <div className="section-header">
           <h2 className="lab-section-title">Archivo de Experimentos</h2>
-          <p className="lab-meta" role="status" aria-live="polite">Resultados: {filtered.length} / {content.experiments.length}</p>
+          <p className="lab-meta" role="status" aria-live="polite">
+            Resultados: {filtered.length} / {content.experiments.length} · Página {currentPage} de {totalPages}
+          </p>
         </div>
 
         {filtered.length === 0 ? (
@@ -61,10 +89,32 @@ export function HomePage({ content }: Props) {
             aria-live="polite"
             key={filtered.length + (filtered[0]?.code ?? '')}
           >
-            {filtered.map((experiment) => (
+            {paginated.map((experiment) => (
               <ExperimentCard key={experiment.code} experiment={experiment} />
             ))}
           </div>
+        )}
+
+        {filtered.length > pageSize && (
+          <nav className="pagination" aria-label="Paginación de experimentos">
+            <button
+              type="button"
+              className="page-btn lab-focus"
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+            >
+              ← Anterior
+            </button>
+            <span className="page-status">Página {currentPage} / {totalPages}</span>
+            <button
+              type="button"
+              className="page-btn lab-focus"
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+            >
+              Siguiente →
+            </button>
+          </nav>
         )}
       </section>
     </Layout>

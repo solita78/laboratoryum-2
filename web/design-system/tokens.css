@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Color - Nordic Minimal + Retro Accents */
+  --bg-0: #0a1110;
+  --bg-1: #111a18;
+  --bg-2: #182321;
+
+  --line-soft: #2b3f38;
+  --line: #3a544b;
+  --line-strong: #4f7164;
+
+  --text-0: #eef5f2;
+  --text-1: #d6e3de;
+  --text-2: #9eb4ab;
+
+  --accent: #71f0b0;
+  --accent-cool: #7cb6c8;
+  --accent-warm: #d8b978;
+
+  --success: #84ebb9;
+  --warning: #e4c46a;
+  --error: #ff6b7a;
+  --info: #8dbbd1;
+
+  --status-published: var(--success);
+  --status-in_progress: var(--warning);
+  --status-draft: var(--info);
+
+  --series-metodologica: #6ba9ff;
+  --series-aplicada: #ff8e66;
+
+  /* Typography */
+  --font-ui: "Azeret Mono", "JetBrains Mono", monospace;
+  --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fs-ui-xs: 0.75rem;
+  --fs-ui-sm: 0.82rem;
+  --fs-body: 1rem;
+  --fs-lead: 1.2rem;
+  --fs-h2: clamp(1.35rem, 2.1vw, 1.9rem);
+  --fs-h1: clamp(2rem, 4vw, 3.1rem);
+
+  --lh-tight: 1.2;
+  --lh-body: 1.6;
+  --ls-ui: 0.02em;
+  --ls-ui-wide: 0.04em;
+
+  /* Spacing */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  /* Radius */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+
+  /* Motion */
+  --t-fast: 120ms;
+  --t-base: 180ms;
+  --t-slow: 260ms;
+
+  /* Elevation */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.24);
+  --shadow-strong: 0 12px 28px rgba(0, 0, 0, 0.34);
+}

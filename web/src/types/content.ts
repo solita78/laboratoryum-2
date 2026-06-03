@@ -4,6 +4,8 @@ export type ExperimentStatus = "draft" | "in_progress" | "published";
 export interface LaboratoryumProject {
   name: string;
   tagline: string;
+  coreQuestion?: string;
+  manifesto?: string;
   valueProposition: string;
   ctaPrimary: string;
   ctaSecondary: string;
@@ -29,6 +31,9 @@ export interface LaboratoryumExperiment {
   summary: string;
   question: string;
   hypothesis: string;
+  methodology?: string;
+  outputs?: string[];
+  territory?: string;
   kit: string;
   periodicSymbol: string;
   status: ExperimentStatus;

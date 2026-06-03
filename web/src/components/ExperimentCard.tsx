@@ -13,7 +13,7 @@ const STATUS_LABEL: Record<LaboratoryumExperiment["status"], string> = {
 
 export function ExperimentCard({ experiment }: Props) {
   return (
-    <article className="exp-card-ficha">
+    <article className={`exp-card-ficha status-${experiment.status}`}>
       <header className="ficha-tab">
         <span className="ficha-code">{experiment.code}</span>
         <span className={`ficha-status status-${experiment.status}`}>{STATUS_LABEL[experiment.status].toUpperCase()}</span>

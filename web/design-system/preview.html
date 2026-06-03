@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratoryum Design Consultation Preview</title>
+    <link rel="stylesheet" href="/design-system/index.css" />
+    <style>
+      :root {
+        --preview-max: 1120px;
+      }
+
+      body {
+        transition: background-color var(--t-base), color var(--t-base);
+      }
+
+      body.preview-light {
+        --bg-0: #f1f8f4;
+        --bg-1: #ffffff;
+        --bg-2: #e8f4ed;
+        --line-soft: #b9d6c7;
+        --line: #9ec4b1;
+        --line-strong: #7fa996;
+        --text-0: #10221a;
+        --text-1: #18412f;
+        --text-2: #2f7052;
+      }
+
+      .preview-wrap {
+        max-width: var(--preview-max);
+        margin: 0 auto;
+      }
+
+      .preview-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--sp-4);
+      }
+
+      .preview-section {
+        margin-bottom: var(--sp-8);
+      }
+
+      .preview-note {
+        max-width: 62ch;
+      }
+
+      .preview-row {
+        display: flex;
+        gap: var(--sp-3);
+        flex-wrap: wrap;
+      }
+
+      .palette-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: var(--sp-3);
+      }
+
+      .swatch {
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        overflow: hidden;
+        background: var(--bg-1);
+      }
+
+      .swatch-chip {
+        height: 64px;
+      }
+
+      .swatch-meta {
+        padding: var(--sp-2) var(--sp-3);
+      }
+
+      .mock-shell {
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        background: var(--bg-1);
+        overflow: hidden;
+      }
+
+      .mock-topbar {
+        min-height: 48px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 var(--sp-4);
+      }
+
+      .mock-body {
+        padding: var(--sp-5);
+      }
+
+      .mock-kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--sp-3);
+      }
+
+      .mock-kpi {
+        border: 1px solid var(--line-soft);
+        border-radius: var(--r-sm);
+        background: var(--bg-2);
+        padding: var(--sp-3);
+      }
+
+      .preview-split {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: var(--sp-6);
+      }
+
+      .preview-divider {
+        height: 1px;
+        background: var(--line);
+        margin: var(--sp-5) 0;
+      }
+
+      @media (max-width: 900px) {
+        .preview-split {
+          grid-template-columns: 1fr;
+        }
+
+        .mock-kpi-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="ds-surface-grid theme-laboratoryum">
+    <main class="ds-main preview-wrap ds-stack-lg">
+      <section class="preview-section ds-stack-md">
+        <div class="preview-header">
+          <div class="ds-stack-sm">
+            <p class="ds-meta">Design Consultation · Laboratoryum</p>
+            <span class="ds-logo-glitch" data-text="laboratoryum">laboratoryum</span>
+          </div>
+          <button id="themeToggle" class="ds-button ds-button--ghost ds-focus" type="button" style="max-width: 180px;">
+            Cambiar tema
+          </button>
+        </div>
+        <h1 class="ds-h1">Sistema visual para lectura y exploración</h1>
+        <p class="ds-lead preview-note">
+          Dirección retro-editorial con lenguaje de fichas de laboratorio y navegación por tabla periódica.
+          Objetivo: alta legibilidad, escaneo semántico rápido y tono técnico con identidad.
+        </p>
+      </section>
+
+      <section class="preview-section ds-stack-md">
+        <h2 class="ds-h2">Tipografía y tono</h2>
+        <div class="preview-split">
+          <article class="ds-panel ds-stack-md">
+            <p class="ds-meta">Display + UI</p>
+            <h2 class="ds-h2">Azeret Mono</h2>
+            <p class="ds-body">
+              Se usa para labels, navegación y estados: aporta estructura técnica con aire mecánico-retro.
+            </p>
+            <p class="ds-caption">LAB-014 · EN CURSO · CONTEXTO / TRAZABILIDAD</p>
+          </article>
+          <article class="ds-panel ds-stack-md">
+            <p class="ds-meta">Body</p>
+            <h2 class="ds-h2" style="font-family: var(--font-body);">Source Sans 3</h2>
+            <p class="ds-body">
+              Se usa para lectura larga: más claridad, menos fatiga y ritmo editorial más limpio.
+            </p>
+            <a class="ds-link" href="#">Ver guía de lectura del archivo</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="preview-section ds-stack-md">
+        <h2 class="ds-h2">Paleta</h2>
+        <div class="palette-grid">
+          <article class="swatch">
+            <div class="swatch-chip" style="background:#060b09;"></div>
+            <div class="swatch-meta ds-stack-sm"><p class="ds-caption">bg-0</p><p class="ds-meta">#060b09</p></div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-chip" style="background:#13201b;"></div>
+            <div class="swatch-meta ds-stack-sm"><p class="ds-caption">bg-2</p><p class="ds-meta">#13201b</p></div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-chip" style="background:#52f2a5;"></div>
+            <div class="swatch-meta ds-stack-sm"><p class="ds-caption">accent</p><p class="ds-meta">#52f2a5</p></div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-chip" style="background:#66d8ff;"></div>
+            <div class="swatch-meta ds-stack-sm"><p class="ds-caption">accent-cool</p><p class="ds-meta">#66d8ff</p></div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-chip" style="background:#ffd166;"></div>
+            <div class="swatch-meta ds-stack-sm"><p class="ds-caption">warning</p><p class="ds-meta">#ffd166</p></div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-chip" style="background:#7ad7ff;"></div>
+            <div class="swatch-meta ds-stack-sm"><p class="ds-caption">draft/info</p><p class="ds-meta">#7ad7ff</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="preview-section ds-stack-md">
+        <h2 class="ds-h2">Mockup · Home de archivo</h2>
+        <div class="preview-split">
+          <article class="ds-exp-card-ficha">
+            <header class="ds-ficha-tab">
+              <span>LAB-001</span>
+              <span class="ds-badge ds-badge--published">PUBLICADO</span>
+            </header>
+            <div class="ds-ficha-body">
+              <div class="ds-ficha-content">
+                <h3 class="ds-ficha-title">La URL que desaparece</h3>
+                <p class="ds-ficha-summary">
+                  Evalúa cómo cambia el acceso y la verificabilidad cuando una URL deja de estar disponible.
+                </p>
+                <div class="ds-ficha-footer">
+                  <p class="ds-ficha-kit">Link permanence kit v1.0.</p>
+                  <a class="ds-ficha-link" href="#">ABRIR EXPERIMENTO →</a>
+                </div>
+              </div>
+              <aside class="ds-ficha-tags-aside">
+                <span class="ds-ficha-tag-vertical">contexto</span>
+                <span class="ds-ficha-tag-vertical">archivo</span>
+              </aside>
+            </div>
+          </article>
+          <article class="mock-shell">
+            <div class="mock-topbar">
+              <p class="ds-meta">Laboratoryum · Estado del Archivo</p>
+              <span class="ds-badge ds-badge--in-progress">5 en curso</span>
+            </div>
+            <div class="mock-body ds-stack-md">
+              <div class="mock-kpi-grid">
+                <div class="mock-kpi ds-stack-sm">
+                  <p class="ds-caption">Labs activos</p>
+                  <p class="ds-h2">25</p>
+                </div>
+                <div class="mock-kpi ds-stack-sm">
+                  <p class="ds-caption">Publicados</p>
+                  <p class="ds-h2">8</p>
+                </div>
+                <div class="mock-kpi ds-stack-sm">
+                  <p class="ds-caption">Borradores</p>
+                  <p class="ds-h2">12</p>
+                </div>
+              </div>
+              <input class="ds-input ds-focus" placeholder="Buscar por título, código o palabra clave" />
+              <button class="ds-button ds-button--primary ds-focus" type="button">Abrir explorador completo</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="preview-section ds-stack-md">
+        <h2 class="ds-h2">Tabla periódica por estado</h2>
+        <div class="ds-periodic-grid">
+          <a class="ds-periodic-cell ds-periodic-cell--published" href="#">
+            <div class="ds-periodic-topline"><span class="ds-periodic-index">01</span><span class="ds-periodic-code">LAB-001</span></div>
+            <span class="ds-periodic-symbol">Lu</span>
+            <p class="ds-periodic-title">La URL que desaparece</p>
+          </a>
+          <a class="ds-periodic-cell ds-periodic-cell--draft" href="#">
+            <div class="ds-periodic-topline"><span class="ds-periodic-index">02</span><span class="ds-periodic-code">LAB-002</span></div>
+            <span class="ds-periodic-symbol">Ee</span>
+            <p class="ds-periodic-title">El enlace sin contexto</p>
+          </a>
+          <a class="ds-periodic-cell ds-periodic-cell--in-progress" href="#">
+            <div class="ds-periodic-topline"><span class="ds-periodic-index">03</span><span class="ds-periodic-code">LAB-003</span></div>
+            <span class="ds-periodic-symbol">Ea</span>
+            <p class="ds-periodic-title">El acceso que filtra conocimiento</p>
+          </a>
+          <a class="ds-periodic-cell ds-periodic-cell--draft" href="#">
+            <div class="ds-periodic-topline"><span class="ds-periodic-index">04</span><span class="ds-periodic-code">LAB-004</span></div>
+            <span class="ds-periodic-symbol">Lf</span>
+            <p class="ds-periodic-title">La fuente no verificable</p>
+          </a>
+          <a class="ds-periodic-cell ds-periodic-cell--published" href="#">
+            <div class="ds-periodic-topline"><span class="ds-periodic-index">05</span><span class="ds-periodic-code">LAB-005</span></div>
+            <span class="ds-periodic-symbol">Ar</span>
+            <p class="ds-periodic-title">El archivo que se rompe</p>
+          </a>
+          <a class="ds-periodic-cell ds-periodic-cell--in-progress" href="#">
+            <div class="ds-periodic-topline"><span class="ds-periodic-index">06</span><span class="ds-periodic-code">LAB-006</span></div>
+            <span class="ds-periodic-symbol">Ag</span>
+            <p class="ds-periodic-title">El agente que cita sin fuente</p>
+          </a>
+          <a class="ds-periodic-cell ds-periodic-cell--published" href="#">
+            <div class="ds-periodic-topline"><span class="ds-periodic-index">07</span><span class="ds-periodic-code">LAB-007</span></div>
+            <span class="ds-periodic-symbol">Lr</span>
+            <p class="ds-periodic-title">La respuesta no trazable</p>
+          </a>
+          <a class="ds-periodic-cell ds-periodic-cell--draft" href="#">
+            <div class="ds-periodic-topline"><span class="ds-periodic-index">08</span><span class="ds-periodic-code">LAB-008</span></div>
+            <span class="ds-periodic-symbol">Ec</span>
+            <p class="ds-periodic-title">El contenido que envejece</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="preview-section ds-stack-md">
+        <h2 class="ds-h2">Mockup · Formulario editorial</h2>
+        <article class="ds-panel ds-stack-md">
+          <p class="ds-meta">Nuevo experimento</p>
+          <input class="ds-input ds-focus" placeholder="Título del experimento" />
+          <div class="preview-row">
+            <select class="ds-select ds-focus"><option>Estado: borrador</option></select>
+            <select class="ds-select ds-focus"><option>Serie: metodológica</option></select>
+          </div>
+          <input class="ds-input ds-focus" placeholder="Resumen breve (máx. 160 caracteres)" />
+          <div class="preview-row">
+            <button class="ds-button ds-button--primary ds-focus" type="button">Guardar ficha</button>
+            <button class="ds-button ds-button--ghost ds-focus" type="button">Vista previa</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const toggle = document.getElementById("themeToggle");
+      toggle?.addEventListener("click", () => {
+        document.body.classList.toggle("preview-light");
+      });
+    </script>
+  </body>
+</html>

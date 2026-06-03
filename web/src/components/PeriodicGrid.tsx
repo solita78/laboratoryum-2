@@ -28,8 +28,26 @@ const makeChemicalSymbol = (title: string) => {
 };
 
 export function PeriodicGrid({ experiments, limit = 25 }: Props) {
-  const total = Math.max(limit, experiments.length);
-  const items = experiments.slice(0, total);
+  // Group experiments by status
+  const byStatus = {
+    draft: experiments.filter((e) => e.status === "draft"),
+    in_progress: experiments.filter((e) => e.status === "in_progress"),
+    published: experiments.filter((e) => e.status === "published"),
+  };
+
+  // Ensure at least one from each status, then fill with remaining
+  const prioritized = [
+    ...(byStatus.draft.slice(0, 1)),
+    ...(byStatus.in_progress.slice(0, 1)),
+    ...(byStatus.published.slice(0, 1)),
+    ...experiments.filter(
+      (e) =>
+        ![byStatus.draft[0], byStatus.in_progress[0], byStatus.published[0]].includes(e)
+    ),
+  ];
+
+  const total = Math.max(limit, prioritized.length);
+  const items = prioritized.slice(0, total);
   const periodicPositions: CellPos[] = [
     { col: 1, row: 1 }, { col: 8, row: 1 },
     { col: 1, row: 2 }, { col: 2, row: 2 }, { col: 5, row: 2 }, { col: 6, row: 2 }, { col: 7, row: 2 }, { col: 8, row: 2 },
@@ -57,7 +75,7 @@ export function PeriodicGrid({ experiments, limit = 25 }: Props) {
               <Link
                 key={exp.code}
                 to={`/experimentos/${exp.slug.split("/").pop()}`}
-                className="periodic-exp-cell lab-focus"
+                className={`periodic-exp-cell lab-focus series-${exp.series} status-${exp.status}`}
                 style={{ gridColumn: String(pos.col), gridRow: String(pos.row) }}
                 aria-label={`${exp.code}: ${exp.title}. Estado ${STATUS_LABEL[exp.status]}`}
                 role="listitem"

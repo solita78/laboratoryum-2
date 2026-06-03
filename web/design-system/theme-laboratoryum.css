@@ -1,0 +1,28 @@
+/* Theme helpers for project-specific mappings */
+.theme-laboratoryum .status-published {
+  color: var(--status-published);
+}
+
+.theme-laboratoryum .status-in_progress {
+  color: var(--status-in_progress);
+}
+
+.theme-laboratoryum .status-draft {
+  color: var(--status-draft);
+}
+
+.theme-laboratoryum .series-metodologica {
+  background: color-mix(in srgb, var(--series-metodologica) 12%, var(--bg-1));
+}
+
+.theme-laboratoryum .series-aplicada {
+  background: color-mix(in srgb, var(--series-aplicada) 12%, var(--bg-1));
+}
+
+.theme-laboratoryum .series-metodologica:hover,
+.theme-laboratoryum .series-aplicada:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-strong);
+  transform: translateY(-1px);
+}
+

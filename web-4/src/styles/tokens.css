@@ -1,0 +1,19 @@
+:root {
+  color-scheme: dark;
+  --bg-base: #070b0a;
+  --bg-panel: #101615;
+  --bg-panel-strong: #121b18;
+  --text-primary: #edf5f1;
+  --text-soft: #c6d4ce;
+  --text-muted: #95a7a0;
+  --text-faint: #6f837b;
+  --accent: #5befb3;
+  --accent-strong: #85f6c9;
+  --cool: #6ad9ff;
+  --warning: #ffd166;
+  --line: rgba(163, 255, 215, 0.14);
+  --line-strong: rgba(163, 255, 215, 0.24);
+  --font-ui: "Space Grotesk", "Helvetica Neue", sans-serif;
+  --font-body: "Space Grotesk", "Helvetica Neue", sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
+}

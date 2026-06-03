@@ -1,19 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --bg-0: #07110c;
-  --bg-1: #0b1711;
-  --bg-2: #102017;
-  --line: #1f3b2c;
-  --text-0: #d7ffe7;
-  --text-1: #8bffb5;
-  --text-2: #4fa36a;
-  --accent: #b7ffcb;
-  --warning: #c6a85a;
-  --error: #b85f5f;
+  --bg-0: #f7f6f3;
+  --bg-1: #ffffff;
+  --bg-2: #f3f1ec;
 
-  --font-ui: "IBM Plex Mono", "JetBrains Mono", monospace;
-  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --text-0: #1e2422;
+  --text-1: #2f3437;
+  --text-2: #6f7673;
+
+  --line: #e5e2dc;
+  --line-soft: rgba(0, 0, 0, 0.06);
+  --line-strong: #d6d2ca;
+
+  --accent-red-bg: #fdebec;
+  --accent-red-text: #9f2f2d;
+  --accent-blue-bg: #e1f3fe;
+  --accent-blue-text: #1f6c9f;
+  --accent-green-bg: #edf3ec;
+  --accent-green-text: #346538;
+  --accent-yellow-bg: #fbf3db;
+  --accent-yellow-text: #956400;
+
+  --status-published: var(--accent-green-bg);
+  --status-published-text: var(--accent-green-text);
+  --status-in_progress: var(--accent-yellow-bg);
+  --status-in_progress-text: var(--accent-yellow-text);
+  --status-draft: var(--accent-blue-bg);
+  --status-draft-text: var(--accent-blue-text);
+
+  --font-ui: "IBM Plex Mono", "SF Mono", "JetBrains Mono", monospace;
+  --font-body: "IBM Plex Sans", "SF Pro Display", "Helvetica Neue", sans-serif;
+  --font-editorial: "Newsreader", "Instrument Serif", serif;
+
+  --fs-ui-xs: 0.74rem;
+  --fs-ui-sm: 0.86rem;
+  --fs-body: 1rem;
+  --fs-lead: clamp(1.2rem, 1.35vw, 1.45rem);
+  --fs-h2: clamp(1.28rem, 2vw, 1.6rem);
+  --fs-h1: clamp(2.2rem, 3.2vw, 3.4rem);
 
   --sp-1: 4px;
   --sp-2: 8px;
@@ -22,12 +47,15 @@
   --sp-5: 24px;
   --sp-6: 32px;
   --sp-7: 48px;
+  --sp-8: 72px;
+  --sp-9: 104px;
 
-  --r-sm: 4px;
-  --r-md: 8px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 12px;
 
-  --t-fast: 120ms;
-  --t-base: 180ms;
+  --t-fast: 160ms;
+  --t-base: 260ms;
 }
 
 * {

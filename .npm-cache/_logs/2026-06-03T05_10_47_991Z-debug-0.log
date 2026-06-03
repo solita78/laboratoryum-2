@@ -1,0 +1,73 @@
+0 verbose cli /opt/homebrew/Cellar/node/23.7.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@10.9.2
+2 info using node@v23.7.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/soledadarismendi/Sites/Laboratoryum/web-4/.npmrc
+5 silly config load:file:/Users/soledadarismendi/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" "../.npm-cache"
+9 verbose logfile logs-max:10 dir:/Users/soledadarismendi/Sites/Laboratoryum/.npm-cache/_logs/2026-06-03T05_10_47_991Z-
+10 verbose logfile /Users/soledadarismendi/Sites/Laboratoryum/.npm-cache/_logs/2026-06-03T05_10_47_991Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 silly idealTree buildDeps
+14 silly fetch manifest react-helmet-async@^2.0.1
+15 silly packumentCache full:https://registry.npmjs.org/react-helmet-async cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/react-helmet-async 131ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/react-helmet-async set size:undefined disposed:false
+18 silly fetch manifest react@^19.2.5
+19 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+20 http fetch GET 200 https://registry.npmjs.org/npm 204ms
+21 http fetch GET 200 https://registry.npmjs.org/react 184ms (cache updated)
+22 silly packumentCache full:https://registry.npmjs.org/react set size:undefined disposed:false
+23 silly fetch manifest react@^16.6.0 || ^17.0.0 || ^18.0.0
+24 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+25 http cache https://registry.npmjs.org/react 10ms (cache hit)
+26 silly packumentCache full:https://registry.npmjs.org/react set size:6679468 disposed:false
+27 verbose stack Error: unable to resolve dependency tree
+27 verbose stack     at #failPeerConflict (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1363:25)
+27 verbose stack     at #loadPeerSet (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1329:33)
+27 verbose stack     at async #buildDepStep (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:904:11)
+27 verbose stack     at async Arborist.buildIdealTree (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:181:7)
+27 verbose stack     at async Promise.all (index 1)
+27 verbose stack     at async Arborist.reify (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:131:5)
+27 verbose stack     at async Install.exec (/opt/homebrew/lib/node_modules/npm/lib/commands/install.js:150:5)
+27 verbose stack     at async Npm.exec (/opt/homebrew/lib/node_modules/npm/lib/npm.js:207:9)
+27 verbose stack     at async module.exports (/opt/homebrew/lib/node_modules/npm/lib/cli/entry.js:74:5)
+28 error code ERESOLVE
+29 error ERESOLVE unable to resolve dependency tree
+30 error
+31 error While resolving: web@0.0.0
+31 error Found: react@19.2.7
+31 error node_modules/react
+31 error   react@"^19.2.5" from the root project
+31 error
+31 error Could not resolve dependency:
+31 error peer react@"^16.6.0 || ^17.0.0 || ^18.0.0" from react-helmet-async@2.0.5
+31 error node_modules/react-helmet-async
+31 error   react-helmet-async@"^2.0.1" from the root project
+31 error
+31 error Fix the upstream dependency conflict, or retry
+31 error this command with --force or --legacy-peer-deps
+31 error to accept an incorrect (and potentially broken) dependency resolution.
+32 error
+32 error
+32 error For a full report see:
+32 error /Users/soledadarismendi/Sites/Laboratoryum/.npm-cache/_logs/2026-06-03T05_10_47_991Z-eresolve-report.txt
+33 silly unfinished npm timer reify 1780463448299
+34 silly unfinished npm timer reify:loadTrees 1780463448300
+35 silly unfinished npm timer idealTree:buildDeps 1780463448333
+36 silly unfinished npm timer idealTree:#root 1780463448333
+37 verbose cwd /Users/soledadarismendi/Sites/Laboratoryum/web-4
+38 verbose os Darwin 25.3.0
+39 verbose node v23.7.0
+40 verbose npm  v10.9.2
+41 notice
+41 notice New major version of npm available! 10.9.2 -> 11.16.0
+41 notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+41 notice To update run: npm install -g npm@11.16.0
+41 notice  { force: true, [Symbol(proc-log.meta)]: true }
+42 verbose exit 1
+43 verbose code 1
+44 error A complete log of this run can be found in: /Users/soledadarismendi/Sites/Laboratoryum/.npm-cache/_logs/2026-06-03T05_10_47_991Z-debug-0.log

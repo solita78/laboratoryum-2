@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@400;600;700&display=swap");
+
+body.theme-periodic-classic {
+  --bg-0: #000000;
+  --bg-1: #000000;
+  --bg-2: #000000;
+  --line: #ffffff;
+  --line-soft: #ffffff;
+  --line-strong: #ffffff;
+  --text-0: #ffffff;
+  --text-1: #ffffff;
+  --text-2: #ffffff;
+  --accent: #ffffff;
+  --warning: #ffffff;
+  --status-published: #ffffff;
+  --status-in_progress: #ffffff;
+  --status-draft: #ffffff;
+  --font-ui: "Archivo Narrow", "Arial Narrow", sans-serif;
+  --font-body: "Archivo", Arial, sans-serif;
+  --fs-ui-xs: 0.95rem;
+  --fs-ui-sm: 1.05rem;
+  --fs-body: 1.15rem;
+  --fs-lead: 1.65rem;
+  --fs-h2: clamp(1.8rem, 2.4vw, 2.3rem);
+  --fs-h1: clamp(3rem, 6.5vw, 7rem);
+  background-color: #000000;
+  background-image: none;
+}
+
+body.theme-periodic-classic::after {
+  background: none;
+}
+
+body.theme-periodic-classic .logo-glitch {
+  text-shadow: none;
+  filter: none;
+}
+
+body.theme-periodic-classic .logo-glitch::before,
+body.theme-periodic-classic .logo-glitch::after {
+  opacity: 0.25;
+}
+
+body.theme-periodic-classic .periodic-section {
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+body.theme-periodic-classic .periodic-section > .lab-section-title,
+body.theme-periodic-classic .periodic-header {
+  display: none;
+}
+
+body.theme-periodic-classic .lab-header {
+  margin-bottom: 20px;
+}
+
+body.theme-periodic-classic .periodic-shell {
+  margin-bottom: 14px;
+}
+
+body.theme-periodic-classic .lab-layout {
+  grid-template-columns: 1fr 340px;
+}
+
+body.theme-periodic-classic .lab-sidebar {
+  order: 2;
+  border-right: none;
+  /*border-left: 1px solid #2d2d2d;*/
+  background: #141414;
+  padding: 30px 0 20px 20px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  margin:30px
+}
+
+body.theme-periodic-classic .sidebar-header,
+body.theme-periodic-classic .sidebar-nav,
+body.theme-periodic-classic .sidebar-extra,
+body.theme-periodic-classic .sidebar-footer {
+  padding-inline: 18px;
+}
+
+body.theme-periodic-classic .sidebar-header {
+  padding-bottom: 10px;
+}
+
+body.theme-periodic-classic .sidebar-nav {
+  border-top: 1px solid #2a2a2a;
+  padding-top: 16px;
+}
+
+body.theme-periodic-classic .site-menu {
+  gap: 10px;
+}
+
+body.theme-periodic-classic .site-menu a {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #f5f5f5;
+}
+
+body.theme-periodic-classic .sidebar-extra {
+  margin-top: 14px;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 14px;
+  overflow-y: auto;
+}
+
+body.theme-periodic-classic .sidebar-section h2 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 1;
+}
+
+body.theme-periodic-classic .sidebar-footer {
+  border-top: 1px solid #2a2a2a;
+  padding-top: 12px;
+  padding-bottom: 14px;
+}
+
+body.theme-periodic-classic .theme-toggle {
+  background: #1c1c1c;
+  border: 1px solid #2f2f2f;
+  color: #f3f3f3;
+  min-height: 48px;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+body.theme-periodic-classic .theme-toggle:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+body.theme-periodic-classic .sidebar-controls .filters {
+  gap: 12px;
+}
+
+body.theme-periodic-classic .sidebar-controls input,
+body.theme-periodic-classic .sidebar-controls select {
+  background: #1a1a1a;
+  border: 1px solid #313131;
+  color: #ffffff;
+  min-height: 48px;
+  font-size: 1rem;
+}
+
+body.theme-periodic-classic .sidebar-controls .filter-reset {
+  background: #202020;
+  border: 1px solid #3a3a3a;
+  color: #ffffff;
+}
+
+body.theme-periodic-classic .sidebar-controls .filter-reset:hover {
+  border-color: #ffffff;
+}
+
+/*body.theme-periodic-classic .lab-sidebar::after {
+  content: "1\A2\A3\A4\A5\A6\A7";
+  white-space: pre;
+  position: absolute;
+  right: 10px;
+  top: 56px;
+  color: #f2f2f2;
+  font-family: var(--font-ui);
+  font-size: 1.75rem;
+  line-height: 1.45;
+  opacity: 0.9;
+}*/
+
+body.theme-periodic-classic .lab-main {
+  order: 1;
+  padding-top: 80px;
+  padding-left: 52px;
+  margin: auto;
+}
+
+body.theme-periodic-classic .lab-header {
+  margin-bottom: 60px;
+}
+
+body.theme-periodic-classic .hero-text {
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  line-height: 1.06;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  max-width: 20ch;
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+body.theme-periodic-classic .hero-question {
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  line-height: 1.45;
+  font-weight: 600;
+  max-width: 56ch;
+  margin-bottom: 14px;
+  color: #f2f2f2;
+}
+
+body.theme-periodic-classic .hero-manifesto {
+  font-size: clamp(1.06rem, 1.45vw, 1.2rem);
+  line-height: 1.5;
+  font-weight: 500;
+  max-width: 56ch;
+  color: #dddddd;
+}
+
+body.theme-periodic-classic .sidebar-footer,
+body.theme-periodic-classic .periodic-section,
+body.theme-periodic-classic .ficha-body,
+body.theme-periodic-classic .ficha-tab,
+body.theme-periodic-classic .ficha-link,
+body.theme-periodic-classic .pagination,
+body.theme-periodic-classic .page-btn,
+body.theme-periodic-classic .filters input,
+body.theme-periodic-classic .filters select {
+  border-radius: 0;
+}
+
+body.theme-periodic-classic .periodic-grid {
+  grid-template-columns: repeat(8, minmax(140px, 1fr));
+  grid-auto-rows: 140px;
+  gap: 10px;
+}
+
+body.theme-periodic-classic .periodic-exp-cell {
+  border: 3px solid #ffffff;
+  border-radius: 0;
+  padding: 8px;
+  box-shadow: none;
+}
+
+body.theme-periodic-classic .periodic-exp-cell.status-published {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+body.theme-periodic-classic .periodic-exp-cell.status-in_progress {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+body.theme-periodic-classic .periodic-exp-cell.status-draft {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+body.theme-periodic-classic .periodic-exp-cell:hover {
+  transform: scale(1.08);
+  filter: none;
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.28);
+}
+
+body.theme-periodic-classic .atomic-index,
+body.theme-periodic-classic .periodic-code,
+body.theme-periodic-classic .periodic-symbol,
+body.theme-periodic-classic .periodic-title {
+  color: #ffffff;
+}
+
+body.theme-periodic-classic .periodic-symbol {
+  font-size: 2.7rem;
+  font-weight: 700;
+}
+
+body.theme-periodic-classic .periodic-title {
+  font-size: 0.84rem;
+  line-height: 1.18;
+}
+
+body.theme-periodic-classic .periodic-code,
+body.theme-periodic-classic .atomic-index {
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+body.theme-periodic-classic .legend-dot {
+  border-color: #ffffff;
+}
+
+body.theme-periodic-classic .legend-published {
+  background: #ffffff;
+}
+
+body.theme-periodic-classic .legend-in-progress {
+  background: #ffffff;
+}
+
+body.theme-periodic-classic .legend-draft {
+  background: #ffffff;
+}
+
+body.theme-periodic-classic .ficha-body,
+body.theme-periodic-classic .pagination,
+body.theme-periodic-classic .sidebar-controls input,
+body.theme-periodic-classic .sidebar-controls select,
+body.theme-periodic-classic .page-btn {
+  background: #000000;
+}
+
+body.theme-periodic-classic .exp-card-ficha,
+body.theme-periodic-classic .exp-card-ficha:hover {
+  filter: none;
+}
+
+body.theme-periodic-classic .ficha-title,
+body.theme-periodic-classic .ficha-summary,
+body.theme-periodic-classic .lab-meta,
+body.theme-periodic-classic .hero-text,
+body.theme-periodic-classic .hero-question,
+body.theme-periodic-classic .hero-manifesto {
+  color: #ffffff;
+}
+
+body.theme-periodic-classic .ficha-link,
+body.theme-periodic-classic .page-status,
+body.theme-periodic-classic .site-menu a:hover {
+  color: #ffffff;
+}
+
+body.theme-periodic-classic .ficha-link {
+  border-color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  body.theme-periodic-classic .periodic-grid {
+    grid-template-columns: repeat(8, 128px);
+    grid-auto-rows: 128px;
+    overflow-x: auto;
+  }
+}

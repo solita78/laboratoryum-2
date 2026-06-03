@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { GlitchLogo } from "./GlitchLogo";
 
@@ -8,6 +8,25 @@ type LayoutProps = {
 };
 
 export function Layout({ children, sidebarContent }: LayoutProps) {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-inview");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+    );
+
+    const nodes = document.querySelectorAll("[data-reveal]");
+    nodes.forEach((node) => observer.observe(node));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="lab-layout">
       <aside className="lab-sidebar">
